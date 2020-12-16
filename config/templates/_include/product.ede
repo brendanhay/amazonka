@@ -21,11 +21,7 @@
 
 {% if shape.constructor.documentation %}
 -- | {{ shape.constructor.documentation }}
---
 {% endif %}
-{% for accessor in shape.accessors %}
--- * '{{ accessor.value.name }}' - {{ accessor.value.documentation }}
-{% endfor %}
 {{ shape.constructor.signature }}
 {{ shape.constructor.declaration }}
 {% for lens in shape.lenses %}

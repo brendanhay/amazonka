@@ -44,18 +44,23 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts 
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables 
     StandaloneDeriving
     StrictData
+    TypeApplications
     TypeFamilies
 
   build-depends:    base >=4.12 && <5

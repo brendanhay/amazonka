@@ -68,10 +68,8 @@ module {{ moduleName }}
     , Lude._Base64
     , Lude.Sensitive (..)
     , Lude._Sensitive
-    , Lude.Time (..)
-    , Lude._Time
-    , Lude.DateTime
-    , Lude.Timestamp
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
     ) where
 
 {% for module in exposedModules %}

@@ -24,6 +24,7 @@ module {{ moduleName }}
     , {{ lens.value.name }}
   {% endfor %}
 
+{% if !output.shared %}
     -- * Destructuring the response
     , {{ output.name }} (..)
     , {{ output.constructor.name}}
@@ -33,6 +34,17 @@ module {{ moduleName }}
     {% endif %}
     , {{ lens.value.name }}
   {% endfor %}
+{% else %}
+     -- * Destructuring the response
+    , Types.{{ output.name }} (..)
+    , Types.{{ output.constructor.name}}
+  {% for lens in output.lenses %}
+    {% if lens.first %}
+    -- ** Response lenses
+    {% endif %}
+    , Types.{{ lens.value.name }}
+  {% endfor %}
+{% endif %}
     ) where
 
 {% for import in moduleImports %}

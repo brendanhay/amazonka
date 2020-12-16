@@ -11,6 +11,7 @@ module {{ moduleName }}
   {% for pattern in shape.patterns %}
     , {{ pattern.value.name }}
   {% endfor %}
+    , from{{ shape.name }}
     )
   ) where
 

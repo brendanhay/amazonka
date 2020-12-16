@@ -7,6 +7,12 @@
         "Region": {
             "renamedTo": "RegionInfo"
         },
+        "DescribeStaleSecurityGroupsNextToken":{
+            "renamedTo": "NextToken"
+        },
+        "DescribeVpcClassicLinkDnsSupportNextToken":{
+            "renamedTo": "NextToken"
+        },
         "IpRange": {
             "requiredFields": [
                 "CidrIp"

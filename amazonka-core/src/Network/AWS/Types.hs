@@ -180,7 +180,6 @@ import Network.AWS.Data.Path
 import Network.AWS.Data.Query
 import Network.AWS.Data.Sensitive (Sensitive, _Sensitive)
 import Network.AWS.Data.Text
-import Network.AWS.Data.Time (DateTime, Time (fromTime), _Time)
 import Network.AWS.Data.XML
 import Network.AWS.Lens
   ( Lens',
@@ -640,7 +639,7 @@ data AuthEnv = AuthEnv
   { _authAccess :: !AccessKey,
     _authSecret :: !(Sensitive SecretKey),
     _authToken :: Maybe (Sensitive SessionToken),
-    _authExpiry :: Maybe DateTime
+    _authExpiry :: Maybe UTCTime
   }
   deriving (Eq, Show, Generic)
 
@@ -653,7 +652,7 @@ instance ToLog AuthEnv where
         "  access key id     = " <> build _authAccess,
         "  secret access key = " <> build _authSecret,
         "  session token     = " <> build _authToken,
-        "  expiration        = " <> build (fromTime <$> _authExpiry),
+        "  expiration        = " <> build _authExpiry,
         "}"
       ]
 
@@ -694,7 +693,6 @@ sessionToken =
 expiration :: Lens' AuthEnv (Maybe UTCTime)
 expiration =
   lens _authExpiry (\s a -> s {_authExpiry = a})
-    . mapping _Time
 
 -- | An authorisation environment containing AWS credentials, and potentially
 -- a reference which can be refreshed out-of-band as temporary credentials expire.
@@ -719,6 +717,7 @@ newtype Region = Region' Text
       Read,
       IsString,
       Hashable,
+      NFData,
       ToXML,
       FromXML,
       ToJSON,

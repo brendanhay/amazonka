@@ -88,7 +88,7 @@ mkFields ::
   StructF (Shape Solved) ->
   [Field]
 mkFields (Lens.view metadata -> m) s st =
-    zipWith mk [1 ..] $ HashMap.toList (st ^. members)
+  zipWith mk [1 ..] $ HashMap.toList (st ^. members)
   where
     mk :: Int -> (Id, Ref) -> Field
     mk i (k, v) =
@@ -114,9 +114,10 @@ mkFields (Lens.view metadata -> m) s st =
     rs = st ^.. getRequired
     p = s ^. annPrefix
 
-    d = case s ^. relMode of
-      Uni x -> Just x
-      Bi -> Nothing
+    d =
+      case s ^. relMode of
+        Uni x -> Just x
+        Bi -> Nothing
 
 fieldAnn :: Lens' Field (Shape Solved)
 fieldAnn = fieldRef . refAnn
@@ -135,16 +136,6 @@ lensDeprecated f =
 
 fieldIsParam :: Field -> Bool
 fieldIsParam f = not (fieldMaybe f) && not (fieldMonoid f)
-
-fieldParamName :: Field -> Name ()
-fieldParamName =
-  Ident ()
-    . Text.unpack
-    . Text.cons 'p'
-    . flip Text.snoc '_'
-    . Manipulate.upperHead
-    . typeId
-    . _fieldId
 
 fieldHelp :: Field -> Help
 fieldHelp f =

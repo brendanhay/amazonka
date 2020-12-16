@@ -19,7 +19,7 @@ newtype NS = NS [Text]
   deriving stock (Eq, Ord, Show)
 
 mkNS :: Text -> NS
-mkNS = NS . Text.splitOn "."
+mkNS = NS . filter (not . Text.null) . Text.splitOn "."
 
 nsToPath :: NS -> FilePath
 nsToPath (NS xs) = Text.unpack (Text.intercalate "/" xs) FilePath.<.> "hs"
@@ -27,12 +27,15 @@ nsToPath (NS xs) = Text.unpack (Text.intercalate "/" xs) FilePath.<.> "hs"
 nsHyphenate :: NS -> Text
 nsHyphenate (NS xs) = Text.intercalate "-" xs
 
+nsDots :: NS -> Text
+nsDots (NS xs) = Text.intercalate "." xs
+
 instance IsString NS where
   fromString "" = mempty
   fromString s = mkNS (fromString s)
 
 instance Semigroup NS where
-  (NS xs) <> (NS ys)
+  NS xs <> NS ys
     | null xs = NS ys
     | null ys = NS xs
     | otherwise = NS (xs <> ys)
@@ -45,4 +48,4 @@ instance FromJSON NS where
   parseJSON = Aeson.withText "namespace" (pure . mkNS)
 
 instance ToJSON NS where
-  toJSON (NS xs) = Aeson.toJSON (Text.intercalate "." xs)
+  toJSON = Aeson.toJSON . nsDots

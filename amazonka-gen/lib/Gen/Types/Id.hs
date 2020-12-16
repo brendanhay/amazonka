@@ -89,7 +89,6 @@ mkId t = UnsafeId t (format t)
 format :: Text -> Text
 format =
   Manipulate.upperHead
-    . upperAcronym
     . Text.dropWhile (not . Char.isAlpha)
 
 representation :: Lens' Id Text

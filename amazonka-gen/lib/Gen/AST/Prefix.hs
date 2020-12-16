@@ -12,7 +12,6 @@
 -- Portability : non-portable (GHC extensions)
 module Gen.AST.Prefix
   ( prefixes,
-    acronymPrefixes,
   )
 where
 
@@ -33,22 +32,28 @@ import Gen.Prelude
 import Gen.Text
 import Gen.Types
 
-type Seen = InsOrdHashMap (CI Text) (HashSet (CI Text))
+type Seen = InsOrdHashMap Text (HashSet Text)
 
 data Env = Env
   { _memo :: InsOrdHashMap Id (Maybe Text),
-    _branches :: Seen,
-    _fields :: Seen
+    _patterns :: Seen,
+    _lenses :: Seen
   }
 
 $(Lens.makeLenses ''Env)
 
 type MemoP = StateT Env (Either String)
 
-prefixes :: InsOrdHashMap Id (Shape Related) -> Either String (InsOrdHashMap Id (Shape Prefixed))
-prefixes ss = State.evalStateT (traverse assignPrefix ss) env
-  where
-    env = Env mempty mempty mempty
+prefixes ::
+  InsOrdHashMap Id (Shape Related) ->
+  Either String (InsOrdHashMap Id (Shape Prefixed))
+prefixes ss =
+  State.evalStateT (traverse assignPrefix ss) $
+    Env
+      { _memo = mempty,
+        _patterns = mempty,
+        _lenses = mempty
+      }
 
 -- -- | Record projected smart constructors in set of seen field names.
 -- smartCtors :: InsOrdHashMap Id (Shape a) -> Seen
@@ -72,32 +77,32 @@ assignPrefix = annotate Prefixed memo go
        in case s of
             Enum _ vs ->
               Just <$> do
-                let hs = mempty : acronymPrefixes r n
+                let hs = patternPrefixes n
                     ks = keys vs
-                unique r branches n hs ks
+                unique r patterns n hs ks
             Struct st ->
               Just <$> do
-                let hs = acronymPrefixes r n
+                let hs = lensPrefixes r n
                     ks = keys (st ^. members)
-                unique r fields n hs ks
+                unique r lenses n hs ks
             _ -> pure Nothing
 
     unique ::
       Relation ->
       Lens' Env Seen ->
       Text ->
-      [CI Text] ->
-      HashSet (CI Text) ->
+      [Text] ->
+      HashSet Text ->
       MemoP Text
     unique r seen n [] ks = do
       s <- Lens.use seen
 
-      let hs = acronymPrefixes r n
+      let hs = lensPrefixes r n
           f x = show x ++ " => " ++ show (HashMap.lookup x s)
 
       Except.throwError $
         "Error prefixing: " ++ show n
-          ++ ", fields: "
+          ++ ", lenses: "
           ++ show (HashSet.toList ks)
           ++ show (map f hs)
     --
@@ -110,54 +115,44 @@ assignPrefix = annotate Prefixed memo go
             unique r seen n hs ks
         _ -> do
           seen %= HashMap.insertWith (<>) h ks
-          pure (CI.original h)
+          pure h
 
 overlap :: (Eq a, Hashable a) => HashSet a -> HashSet a -> Bool
 overlap xs ys = not . HashSet.null $ HashSet.intersection xs ys
 
-keys :: InsOrdHashMap Id a -> HashSet (CI Text)
-keys = HashSet.fromList . map (CI.mk . typeId) . HashMap.keys
+keys :: InsOrdHashMap Id a -> HashSet Text
+keys = HashSet.fromList . map typeId . HashMap.keys
+
+patternPrefixes :: Text -> [Text]
+patternPrefixes n = [n]
 
 -- | Acronym preference list.
---
--- Prefixing occurs as follows:
--- * Requests  - prefer acronyms
--- * Responses - prefer acronyms, and append 'rs'
--- * Shapes    - prefer single letters, then acronyms
-acronymPrefixes :: Relation -> Text -> [CI Text]
-acronymPrefixes r (stripSuffix "Response" -> n)
+lensPrefixes :: Relation -> Text -> [Text]
+lensPrefixes r n
   | isOrphan r,
     Uni d <- _relMode r =
     case d of
-      Input -> ci xs
-      Output -> ci rs
-  | otherwise = ci xs
+      Input -> xs
+      Output -> rs
+  | otherwise = xs
   where
     rs = map (<> "rs") xs
 
-    ci = map CI.mk
-
-    xs = catMaybes [r2, r3, r4, r5, rN "f", rN "g", rN "h", rN "l", r6]
+    xs =
+      map Text.toLower $
+        catMaybes [r2, r4, r5, rN "f", rN "g", rN "h", rN "l", r6]
 
     a = camelAcronym n
-    a' = upperAcronym n
 
     -- VpcPeeringInfo -> VPI
     r2 = Manipulate.toAcronym a
 
-    -- VpcPeeringInfo -> VPCPI
-    r3
-      | x /= r2 = x
-      | otherwise = Nothing
-      where
-        x = Manipulate.toAcronym a'
-
     -- SomeTestType -> S
-    r4 = Text.toUpper <$> safeHead n
+    r4 = safeHead n
 
     -- SomeTypes -> STs (retain pural)
     r5
-      | Text.isSuffixOf "s" n = flip Text.snoc 's' <$> (r2 <|> r3)
+      | Text.isSuffixOf "s" n = flip Text.snoc 's' <$> r2
       | otherwise = Nothing
 
     rN suffix = (<> suffix) <$> (r2 <|> r4)

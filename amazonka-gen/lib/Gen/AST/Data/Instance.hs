@@ -55,21 +55,21 @@ shapeInsts p m fs = go m
 
     inp :: Protocol -> [Field] -> Inst
     inp = \case
-      JSON -> ToJSON
-      RestJSON -> ToJSON
-      RestXML -> ToXML
+      Json -> ToJSON
+      RestJson -> ToJSON
+      RestXml -> ToXML
       Query -> ToQuery . map Right
-      EC2 -> ToQuery . map Right
-      APIGateway -> ToJSON
+      Ec2 -> ToQuery . map Right
+      ApiGateway -> ToJSON
 
     out :: Protocol -> [Field] -> Inst
     out = \case
-      JSON -> FromJSON
-      RestJSON -> FromJSON
-      RestXML -> FromXML
+      Json -> FromJSON
+      RestJson -> FromJSON
+      RestXml -> FromXML
       Query -> FromXML
-      EC2 -> FromXML
-      APIGateway -> FromJSON
+      Ec2 -> FromXML
+      ApiGateway -> FromJSON
 
 requestInsts ::
   HasMetadata a f =>
@@ -176,9 +176,9 @@ requestInsts m oname h r fs = do
 
     protocolHeaders :: [(Text, Text)]
     protocolHeaders = case p of
-      JSON -> t ++ c
-      RestJSON -> c
-      APIGateway -> j ++ c
+      Json -> t ++ c
+      RestJson -> c
+      ApiGateway -> j ++ c
       _ -> []
       where
         t = maybeToList $ ("X-Amz-Target",) <$> target
@@ -188,7 +188,7 @@ requestInsts m oname h r fs = do
     protocolQuery :: [(Text, Maybe Text)]
     protocolQuery = case p of
       Query -> [a, v]
-      EC2 -> [a, v]
+      Ec2 -> [a, v]
       _ -> []
       where
         a = ("Action", Just action)

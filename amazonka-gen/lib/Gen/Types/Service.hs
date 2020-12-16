@@ -18,10 +18,12 @@ import qualified Control.Lens as Lens
 import qualified Data.Aeson as Aeson
 import Data.Aeson.Types ((.!=), (.:), (.:?), (.=))
 import qualified Data.Bifunctor as Bifunctor
+import qualified Data.HashMap.Strict as HashMap.Strict
 import qualified Data.HashMap.Strict.InsOrd as HashMap
 import qualified Data.HashSet.InsOrd as HashSet
 import qualified Data.List as List
 import qualified Data.Maybe as Maybe
+import Data.Ord (Down (Down))
 import qualified Data.Scientific as Scientific
 import qualified Data.Text as Text
 import qualified GHC.Generics as Generics
@@ -59,32 +61,13 @@ instance FromJSON Signature where
 instance ToJSON Signature where
   toJSON = Aeson.String . sigToText
 
-data Timestamp
-  = ISO8601
-  | POSIX
-  deriving stock (Eq, Show, Generic)
-
-tsToText :: Timestamp -> Text
-tsToText = \case
-  ISO8601 -> "DateTime"
-  POSIX -> "Timestamp"
-
-instance FromJSON Timestamp where
-  parseJSON = Aeson.withText "timestamp" $ \case
-    "iso8601" -> pure ISO8601
-    "unixTimestamp" -> pure POSIX
-    e -> fail ("Unknown Timestamp: " ++ Text.unpack e)
-
-instance ToJSON Timestamp where
-  toJSON = Aeson.toJSON . tsToText
-
 data Protocol
-  = JSON
-  | RestJSON
-  | RestXML
+  = Json
+  | RestJson
+  | RestXml
   | Query
-  | EC2
-  | APIGateway
+  | Ec2
+  | ApiGateway
   deriving stock (Eq, Show, Generic)
 
 instance FromJSON Protocol where
@@ -93,21 +76,21 @@ instance FromJSON Protocol where
 instance ToJSON Protocol where
   toJSON =
     Aeson.String . \case
-      JSON -> "JSON"
-      RestJSON -> "JSON"
-      RestXML -> "XML"
+      Json -> "JSON"
+      RestJson -> "JSON"
+      RestXml -> "XML"
       Query -> "Query"
-      EC2 -> "Query"
-      APIGateway -> "APIGateway"
+      Ec2 -> "Query"
+      ApiGateway -> "APIGateway"
 
 timestamp :: Protocol -> Timestamp
 timestamp = \case
-  JSON -> POSIX
-  RestJSON -> POSIX
-  RestXML -> ISO8601
+  Json -> POSIX
+  RestJson -> POSIX
+  RestXml -> ISO8601
   Query -> ISO8601
-  EC2 -> ISO8601
-  APIGateway -> POSIX
+  Ec2 -> ISO8601
+  ApiGateway -> POSIX
 
 data Checksum
   = MD5
@@ -123,7 +106,7 @@ instance ToJSON Checksum where
 data Location
   = Headers
   | Header
-  | URI
+  | Uri
   | Querystring
   | StatusCode
   | Body
@@ -168,17 +151,18 @@ instance HasId (RefF a) where
   identifier = identifier . _refShape
 
 instance FromJSON (RefF ()) where
-  parseJSON = Aeson.withObject "ref" $ \o ->
-    RefF ()
-      <$> o .: "shape"
-      <*> o .:? "documentation"
-      <*> o .:? "location"
-      <*> o .:? "locationName"
-      <*> o .:? "resultWrapper"
-      <*> o .:? "queryName"
-      <*> o .:? "streaming" .!= False
-      <*> o .:? "xmlAttribute" .!= False
-      <*> o .:? "xmlNamespace"
+  parseJSON =
+    Aeson.withObject "ref" $ \o ->
+      RefF ()
+        <$> o .: "shape"
+        <*> o .:? "documentation"
+        <*> o .:? "location"
+        <*> o .:? "locationName"
+        <*> o .:? "resultWrapper"
+        <*> o .:? "queryName"
+        <*> o .:? "streaming" .!= False
+        <*> o .:? "xmlAttribute" .!= False
+        <*> o .:? "xmlNamespace"
 
 class HasRefs f where
   references :: Lens.Traversal (f a) (f b) (RefF a) (RefF b)
@@ -188,7 +172,7 @@ data ErrorInfo = ErrorInfo
     _errStatus :: !Int,
     _errSenderFault :: !Bool
   }
-  deriving stock (Show, Generic)
+  deriving stock (Show, Eq, Generic)
 
 $(Lens.makeLenses ''ErrorInfo)
 
@@ -203,27 +187,32 @@ data Info = Info
   { _infoDocumentation :: Maybe Help,
     _infoMin :: Maybe Scientific,
     _infoMax :: Maybe Scientific,
+    _infoPattern :: Maybe Text,
+    _infoTimestamp :: Maybe Timestamp,
     _infoFlattened :: !Bool,
     _infoSensitive :: !Bool,
     _infoStreaming :: !Bool,
     _infoException :: !Bool,
     _infoError :: Maybe ErrorInfo
   }
-  deriving stock (Show, Generic)
+  deriving stock (Show, Eq, Generic)
 
 $(Lens.makeClassy ''Info)
 
 instance FromJSON Info where
-  parseJSON = Aeson.withObject "info" $ \o ->
-    Info
-      <$> o .:? "documentation"
-      <*> o .:? "min"
-      <*> o .:? "max"
-      <*> o .:? "flattened" .!= False
-      <*> o .:? "sensitive" .!= False
-      <*> o .:? "streaming" .!= False
-      <*> o .:? "exception" .!= False
-      <*> o .:? "error"
+  parseJSON =
+    Aeson.withObject "info" $ \o ->
+      Info
+        <$> o .:? "documentation"
+        <*> o .:? "min"
+        <*> o .:? "max"
+        <*> o .:? "pattern"
+        <*> o .:? "timestampFormat"
+        <*> o .:? "flattened" .!= False
+        <*> o .:? "sensitive" .!= False
+        <*> o .:? "streaming" .!= False
+        <*> o .:? "exception" .!= False
+        <*> o .:? "error"
 
 nonEmpty :: HasInfo a => a -> Bool
 nonEmpty = (> Just 0) . Lens.view infoMin
@@ -245,9 +234,10 @@ instance HasRefs ListF where
   references = listItem
 
 instance FromJSON (Info -> ListF ()) where
-  parseJSON = Aeson.withObject "list" $ \o ->
-    flip ListF
-      <$> o .: "member"
+  parseJSON =
+    Aeson.withObject "list" $ \o ->
+      flip ListF
+        <$> o .: "member"
 
 data MapF a = MapF
   { _mapInfo :: Info,
@@ -267,10 +257,11 @@ instance HasRefs MapF where
   references f (MapF i k v) = MapF i <$> f k <*> f v
 
 instance FromJSON (Info -> MapF ()) where
-  parseJSON = Aeson.withObject "map" $ \o -> do
-    k <- o .: "key"
-    v <- o .: "value"
-    pure $ \i -> MapF i k v
+  parseJSON =
+    Aeson.withObject "map" $ \o -> do
+      k <- o .: "key"
+      v <- o .: "value"
+      pure $ \i -> MapF i k v
 
 data StructF a = StructF
   { _structInfo :: Info,
@@ -291,11 +282,17 @@ instance HasRefs StructF where
   references = Lens.traverseOf (members . Lens.traversed)
 
 instance FromJSON (Info -> StructF ()) where
-  parseJSON = Aeson.withObject "struct" $ \o -> do
-    ms <- o .: "members"
-    r <- o .:? "required" .!= mempty
-    p <- o .:? "payload"
-    pure $ \i -> StructF i (body p ms) r p
+  parseJSON =
+    Aeson.withObject "struct" $ \o -> do
+      req <- o .:? "required" .!= mempty
+      kvs <- o .: "members" <&> List.sortOn fst . HashMap.Strict.toList
+
+      let order = zip (req ++ map fst kvs) [1 :: Int ..]
+          sorted = HashMap.fromList (List.sortOn (\(k, _v) -> lookup k order) kvs)
+
+      p <- o .:? "payload"
+
+      pure (\i -> StructF i (body p sorted) req p)
     where
       -- This ensure that the field referenced by a possible
       -- "payload":<id> has a location set.
@@ -344,26 +341,27 @@ instance HasRefs ShapeF where
     Lit i l -> pure (Lit i l)
 
 instance FromJSON (ShapeF ()) where
-  parseJSON = Aeson.withObject "shape" $ \o -> do
-    i <- Aeson.parseJSON (Aeson.Object o)
-    t <- o .: "type"
-    m <- o .:? "enum"
-    case t of
-      "list" -> List . ($ i) <$> Aeson.parseJSON (Aeson.Object o)
-      "map" -> Map . ($ i) <$> Aeson.parseJSON (Aeson.Object o)
-      "structure" -> Struct . ($ i) <$> Aeson.parseJSON (Aeson.Object o)
-      "integer" -> pure (Lit i Int)
-      "long" -> pure (Lit i Long)
-      "double" -> pure (Lit i Double)
-      "float" -> pure (Lit i Double)
-      "blob" -> pure (Lit i Base64)
-      "boolean" -> pure (Lit i Bool)
-      "timestamp" -> pure (Lit i Time)
-      "json" -> pure (Lit i Json)
-      "string" -> pure (maybe (Lit i Text) f m)
-        where
-          f = Enum i . HashMap.fromList . map (first mkId . renameBranch)
-      _ -> fail $ "Unknown Shape type: " ++ Text.unpack t
+  parseJSON =
+    Aeson.withObject "shape" $ \o -> do
+      i <- Aeson.parseJSON (Aeson.Object o)
+      t <- o .: "type"
+      m <- o .:? "enum"
+      case t of
+        "list" -> List . ($ i) <$> Aeson.parseJSON (Aeson.Object o)
+        "map" -> Map . ($ i) <$> Aeson.parseJSON (Aeson.Object o)
+        "structure" -> Struct . ($ i) <$> Aeson.parseJSON (Aeson.Object o)
+        "integer" -> pure (Lit i Int)
+        "long" -> pure (Lit i Long)
+        "double" -> pure (Lit i Double)
+        "float" -> pure (Lit i Double)
+        "blob" -> pure (Lit i Base64)
+        "boolean" -> pure (Lit i Bool)
+        "timestamp" -> pure (Lit i (Time (_infoTimestamp i)))
+        "json" -> pure (Lit i JsonValue)
+        "string" -> pure (maybe (Lit i Text) f m)
+          where
+            f = Enum i . HashMap.fromList . map (first mkId . renameBranch)
+        _ -> fail $ "Unknown Shape type: " ++ Text.unpack t
 
 data Operation f a b = Operation
   { _opName :: Id,
@@ -388,15 +386,16 @@ instance HasHTTP (Operation f a b) where
   hTTP = opHTTP
 
 instance FromJSON (Operation Maybe (RefF ()) ()) where
-  parseJSON = Aeson.withObject "operation" $ \o ->
-    Operation
-      <$> (o .: "name" <&> mkId . renameOperation)
-      <*> o .:? "documentation"
-      <*> o .:? "deprecated" .!= False
-      <*> o .: "http"
-      <*> o .:? "input"
-      <*> o .:? "output"
-      <*> pure Nothing
+  parseJSON =
+    Aeson.withObject "operation" $ \o ->
+      Operation
+        <$> (o .: "name" <&> mkId . renameOperation)
+        <*> o .:? "documentation"
+        <*> o .:? "deprecated" .!= False
+        <*> o .: "http"
+        <*> o .:? "input"
+        <*> o .:? "output"
+        <*> pure Nothing
 
 instance ToJSON a => ToJSON (Operation Identity a b) where
   toJSON o =
@@ -431,20 +430,21 @@ deriving instance Show (Metadata Identity)
 $(Lens.makeClassy ''Metadata)
 
 instance FromJSON (Metadata Maybe) where
-  parseJSON = Aeson.withObject "meta" $ \o ->
-    Metadata
-      <$> o .: "protocol"
-      <*> o .: "serviceAbbreviation"
-      <*> (o .: "serviceAbbreviation" <&> serviceFunction)
-      <*> (o .: "serviceFullName" <&> renameService)
-      <*> o .: "apiVersion"
-      <*> o .: "signatureVersion"
-      <*> o .: "endpointPrefix"
-      <*> o .:? "timestampFormat"
-      <*> o .:? "checksumFormat"
-      <*> o .:? "xmlNamespace"
-      <*> o .:? "jsonVersion"
-      <*> o .:? "targetPrefix"
+  parseJSON =
+    Aeson.withObject "meta" $ \o ->
+      Metadata
+        <$> o .: "protocol"
+        <*> o .: "serviceAbbreviation"
+        <*> (o .: "serviceAbbreviation" <&> serviceFunction)
+        <*> (o .: "serviceFullName" <&> renameService)
+        <*> o .: "apiVersion"
+        <*> o .: "signatureVersion"
+        <*> o .: "endpointPrefix"
+        <*> o .:? "timestampFormat"
+        <*> o .:? "checksumFormat"
+        <*> o .:? "xmlNamespace"
+        <*> o .:? "jsonVersion"
+        <*> o .:? "targetPrefix"
 
 instance ToJSON (Metadata Identity) where
   toJSON = Gen.TH.genericToJSON Gen.TH.camel
@@ -452,12 +452,12 @@ instance ToJSON (Metadata Identity) where
 serviceError :: HasMetadata a f => a -> Text
 serviceError m =
   case m ^. protocol of
-    JSON -> "parseJSONError"
-    RestJSON -> "parseJSONError"
-    RestXML -> "parseXMLError"
+    Json -> "parseJSONError"
+    RestJson -> "parseJSONError"
+    RestXml -> "parseXMLError"
     Query -> "parseXMLError"
-    EC2 -> "parseXMLError"
-    APIGateway -> "parseJSONError"
+    Ec2 -> "parseXMLError"
+    ApiGateway -> "parseJSONError"
 
 data Service f a b c = Service
   { _metadata' :: Metadata f,
@@ -475,15 +475,16 @@ instance HasMetadata (Service f a b c) f where
   metadata = metadata'
 
 instance FromJSON (Service Maybe (RefF ()) (ShapeF ()) (Waiter Id)) where
-  parseJSON = Aeson.withObject "service" $ \o -> do
-    m <- o .: "metadata"
-    p <- o .:? "pagination" .!= mempty
-    Service m
-      <$> o .: "documentation"
-      <*> (o .: "operations" <&> HashMap.map (pager p))
-      <*> o .: "shapes"
-      <*> (o .:? "waiters" .!= mempty <&> HashMap.mapMaybe id)
-      <*> parseRetry (m ^. serviceAbbrev) o
+  parseJSON =
+    Aeson.withObject "service" $ \o -> do
+      m <- o .: "metadata"
+      p <- o .:? "pagination" .!= mempty
+      Service m
+        <$> o .: "documentation"
+        <*> (o .: "operations" <&> HashMap.map (pager p))
+        <*> o .: "shapes"
+        <*> (o .:? "waiters" .!= mempty <&> HashMap.mapMaybe id)
+        <*> parseRetry (m ^. serviceAbbrev) o
     where
       pager ::
         InsOrdHashMap Id (Pager Id) ->

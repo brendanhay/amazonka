@@ -11,77 +11,82 @@
 module Gen.Import where
 
 import qualified Control.Lens as Lens
+import qualified Data.HashMap.Strict.InsOrd as HashMap
 import qualified Data.List as List
 import qualified Data.Maybe as Maybe
 import qualified Data.Set as Set
 import Gen.Prelude
 import Gen.Types
 
-operationImports :: Library -> Operation Identity SData a -> [NS]
+qualify :: NS -> Text -> Text
+qualify ns alias = "qualified " <> nsDots ns <> " as " <> alias
+
+operationImports :: Library -> Operation Identity SData a -> [Text]
 operationImports l o =
-  List.sort $
-    "qualified Network.AWS.Request as Req" :
-    "qualified Network.AWS.Response as Res" :
-    qualifiedLude :
-    qualifiedLens :
-    l ^. typesNS :
-    l ^. operationModules
-      ++ maybeToList (const "qualified Network.AWS.Pager as Page" <$> o ^. opPager)
+  "qualified Network.AWS.Request as Request" :
+  "qualified Network.AWS.Response as Response" :
+  qualifiedLude :
+  qualifiedLens :
+  qualify (l ^. typesNS) "Types" :
+  map nsDots (l ^. operationModules)
+    ++ maybeToList (const "qualified Network.AWS.Pager as Pager" <$> o ^. opPager)
 
-typeImports :: Library -> [NS]
+typeImports :: Library -> [Text]
 typeImports l =
-  List.sort $
-    qualifiedLude :
-    qualifiedLens :
-    signatureImport (l ^. signatureVersion) :
-    l ^. typeModules
+  qualifiedLude :
+  qualifiedLens :
+  signatureImport (l ^. signatureVersion) :
+  map nsDots (l ^. typeModules)
 
-sumImports :: Library -> [NS]
+sumImports :: Library -> [Text]
 sumImports l =
-  List.sort $
-    qualifiedLude :
-    l ^. typeModules
+  qualifiedLude :
+  map (`qualify` "Types") (l ^. typeModules)
 
-productImports :: Library -> Prod -> [NS]
+productImports :: Library -> Prod -> [Text]
 productImports l p =
-  List.sort $
-    qualifiedLude :
-    qualifiedLens :
-    l ^. typeModules
-      ++ (Set.toList $ Set.map (l ^. typesNS <>) moduleDependencies)
+  qualifiedLude :
+  qualifiedLens :
+  map (`qualify` "Types") (l ^. typeModules)
+    ++ Set.toList moduleDependencies
   where
-    moduleDependencies = Set.intersection dependencies moduleShapes
-    dependencies = Set.map mkNS $ _prodDeps p
-    moduleShapes = Set.fromList (mkNS . typeId . identifier <$> l ^.. shapes . Lens.traversed)
+    moduleDependencies =
+      Set.map (\ns -> qualify (l ^. typesNS <> ns) "Types") $
+        Set.intersection moduleShapes dependencies
 
-waiterImports :: Library -> [NS]
+    moduleShapes =
+      Set.fromList (mkNS . typeId . identifier <$> HashMap.elems (l ^. shapes))
+
+    dependencies =
+      Set.map mkNS (_prodDeps p)
+
+waiterImports :: Library -> [Text]
 waiterImports l =
-  List.sort $
-    qualifiedLens :
-    qualifiedLude :
-    "qualified Network.AWS.Waiter as Wait" :
-    l ^. typesNS :
-    map (operationNS ns . _waitOpName) (l ^.. waiters . Lens.traversed)
-  where
-    ns = l ^. libraryNS
+  qualifiedLens :
+  qualifiedLude :
+  "qualified Network.AWS.Waiter as Waiter" :
+  qualify (l ^. typesNS) "Types" :
+  map
+    (nsDots . operationNS (l ^. libraryNS) . _waitOpName)
+    (HashMap.elems (l ^. waiters))
 
-signatureImport :: Signature -> NS
+signatureImport :: Signature -> Text
 signatureImport = \case
   V2 -> "qualified Network.AWS.Sign.V2 as Sign"
   _ -> "qualified Network.AWS.Sign.V4 as Sign"
 
-testImports :: Library -> [NS]
+testImports :: Library -> [Text]
 testImports l =
-  [ mkNS $ "Test.AWS." <> l ^. serviceAbbrev,
-    mkNS $ "Test.AWS." <> l ^. serviceAbbrev <> ".Internal"
+  [ "Test.AWS." <> l ^. serviceAbbrev,
+    "Test.AWS." <> l ^. serviceAbbrev <> ".Internal"
   ]
 
-fixtureImports :: Library -> [NS]
+fixtureImports :: Library -> [Text]
 fixtureImports l =
-  [ l ^. libraryNS,
-    mkNS $ "Test.AWS." <> l ^. serviceAbbrev <> ".Internal"
+  [ nsDots (l ^. libraryNS),
+    "Test.AWS." <> l ^. serviceAbbrev <> ".Internal"
   ]
 
-qualifiedLens, qualifiedLude :: NS
+qualifiedLens, qualifiedLude :: Text
 qualifiedLens = "qualified Network.AWS.Lens as Lens"
-qualifiedLude = "qualified Network.AWS.Prelude as Lude"
+qualifiedLude = "qualified Network.AWS.Prelude as Core"

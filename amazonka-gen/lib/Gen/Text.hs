@@ -14,9 +14,6 @@ import qualified Data.Char as Char
 import qualified Data.Foldable as Foldable
 import qualified Data.HashSet as HashSet
 import qualified Data.Text as Text
-import Data.Text.ICU (Regex)
-import Data.Text.ICU.Replace (Replace)
-import qualified Data.Text.ICU.Replace as ICU.Replace
 import qualified Data.Text.Manipulate as Manipulate
 import Gen.Prelude
 import qualified Text.Parsec.Language as Parsec.Language
@@ -51,12 +48,7 @@ renameOperation t
     f x = x == '_' || Char.isDigit x
 
 serviceFunction :: Text -> Text
-serviceFunction n =
-  let f c = Char.isUpper c || Char.isDigit c
-   in (<> "Service") $
-        if Text.all f n
-          then Text.toLower n
-          else Manipulate.lowerHead (lowerFirstAcronym n)
+serviceFunction = const "mkServiceConfig"
 
 renameService :: Text -> Text
 renameService =
@@ -80,7 +72,7 @@ renameBranch = first (renameReserved . go) . join (,)
       | decimal x = Text.cons 'D' . cat $ split x
       | Text.all Char.isDigit x = Text.cons 'N' x
       | Text.length x <= 2 = Text.toUpper x
-      | otherwise = upperAcronym . cat $ split x
+      | otherwise = cat $ split x
 
     cat = Foldable.foldMap (Text.intercalate "_" . map component . Text.split dot)
     split = Text.split seperator
@@ -120,190 +112,10 @@ renameReserved x
                  "pattern"
                ]
 
--- Pass in Relation, check if Uni directional + not shared and then add
--- rq + rs to a simplified acronym prefix algo?
-
 camelAcronym :: Text -> Text
-camelAcronym x = replaceAll x xs
-  where
-    xs = map (bimap fromString fromString) acronyms
+camelAcronym = id
 
 lowerFirstAcronym :: Text -> Text
-lowerFirstAcronym x = Manipulate.lowerHead (replaceAll x xs)
-  where
-    xs = map (bimap (fromString . ('^' :)) (fromString . f)) acronyms
-
-    f (c : cs) = Char.toLower c : cs
-    f [] = []
-
-replaceAll :: Text -> [(Regex, Replace)] -> Text
-replaceAll = Foldable.foldl' (flip (uncurry ICU.Replace.replaceAll))
-
-upperAcronym :: Text -> Text
-upperAcronym x = Foldable.foldl' (flip (uncurry ICU.Replace.replaceAll)) x xs
-  where
-    xs :: [(Regex, Replace)]
-    xs =
-      [ ("Acl", "ACL"),
-        ("Adm([^i]|$)", "ADM$1"),
-        ("Aes", "AES"),
-        ("Ami", "AMI"),
-        ("Api", "API"),
-        ("Apns", "APNS"),
-        ("Arn", "ARN"),
-        ("Asn", "ASN"),
-        ("Aws", "AWS"),
-        ("Bcc([A-Z])", "BCC$1"),
-        ("Bgp", "BGP"),
-        ("Cc([A-Z])", "CC$1"),
-        ("Cors", "CORS"),
-        ("Cpu", "CPU"),
-        ("Csr$", "CSR"),
-        ("Csv", "CSV"),
-        ("Db", "DB"),
-        ("Dhcp", "DHCP"),
-        ("Dns", "DNS"),
-        ("Ebs", "EBS"),
-        ("Ec2", "EC2"),
-        ("Eip", "EIP"),
-        ("en-US", "EN_US"),
-        ("Eq([^u]|$)", "EQ$1"),
-        ("Gcm", "GCM"),
-        ("Gcm", "GCM"),
-        ("Gt$", "GT"),
-        ("Hapg", "HAPG"),
-        ("Hsm", "HSM"),
-        ("Html", "HTML"),
-        ("Http([^s]|$)", "HTTP$1"),
-        ("Https", "HTTPS"),
-        ("Hvm", "HVM"),
-        ("ID", "Id"),
-        ("Ia$", "IA"),
-        ("Iam", "IAM"),
-        ("Icmp", "ICMP"),
-        ("Idn", "IDN"),
-        ("iOS$", "IOS"),
-        ("Ios$", "IOS"),
-        ("Io([^a-z])", "IO$1"),
-        ("Iops", "IOPS"),
-        ("Ip", "IP"),
-        ("Jar", "JAR"),
-        ("Json", "JSON"),
-        ("Jvm", "JVM"),
-        ("Kms", "KMS"),
-        ("Lt$", "LT"),
-        ("Mac([^h]|$)", "MAC$1"),
-        ("Md5", "MD5"),
-        ("Mfa", "MFA"),
-        ("Ok", "OK"),
-        ("Os", "OS"),
-        ("Php", "PHP"),
-        ("Qos", "QOS"),
-        ("Raid", "RAID"),
-        ("Ramdisk", "RAMDisk"),
-        ("Rds", "RDS"),
-        ("Sdk", "SDK"),
-        ("Sgd", "SGD"),
-        ("Sni", "SNI"),
-        ("Sns", "SNS"),
-        ("Sriov", "SRIOV"),
-        ("Ssh", "SSH"),
-        ("Ssl", "SSL"),
-        ("Sso", "SSO"),
-        ("Svn", "SVN"),
-        ("Tar([^g]|$)", "TAR$1"),
-        ("Tcp", "TCP"),
-        ("Tde", "TDE"),
-        ("Tgz", "TGZ"),
-        ("Tls", "TLS"),
-        ("Uri", "URI"),
-        ("Url", "URL"),
-        ("Vgw", "VGW"),
-        ("Vhd", "VHD"),
-        ("Vip", "VIP"),
-        ("Vlan", "VLAN"),
-        ("Vm([^d]|$)", "VM$1"),
-        ("Vmdk", "VMDK"),
-        ("Vpc", "VPC"),
-        ("Vpn", "VPN"),
-        ("X8664", "X86_64"),
-        ("Xlarge", "XLarge"),
-        ("Xml", "XML"),
-        ("Xss", "XSS"),
-        ("xlarge", "XLarge")
-      ]
-
-acronyms :: [(String, String)]
-acronyms =
-  [ ("ACL", "Acl"),
-    ("AES", "Aes"),
-    ("AMI", "Ami"),
-    ("API", "Api"),
-    ("APNS", "Apns"),
-    ("ARN", "Arn"),
-    ("ASN", "Asn"),
-    ("AWS", "Aws"),
-    ("BGP", "Bgp"),
-    ("CORS", "Cors"),
-    ("CPU", "Cpu"),
-    ("CSV", "Csv"),
-    ("DB", "Db"),
-    ("DHCP", "Dhcp"),
-    ("DNS", "Dns"),
-    ("EBS", "Ebs"),
-    ("EC2", "Ec2"),
-    ("EIP", "Eip"),
-    ("EN_US", "en-US"),
-    ("GCM", "Gcm"),
-    ("GCM", "Gcm"),
-    ("HAPG", "Hapg"),
-    ("HSM", "Hsm"),
-    ("HTML", "Html"),
-    ("HTTPS", "Https"),
-    ("HVM", "Hvm"),
-    ("IAM", "Iam"),
-    ("ICMP", "Icmp"),
-    ("ID", "Id"),
-    ("IDN", "Idn"),
-    ("IOS$", "IOS"),
-    ("IOPS", "Iops"),
-    ("IP", "Ip"),
-    ("JAR", "Jar"),
-    ("JSON", "Json"),
-    ("JVM", "Jvm"),
-    ("KMS", "Kms"),
-    ("MD5", "Md5"),
-    ("MFA", "Mfa"),
-    ("OK", "Ok"),
-    ("OS", "Os"),
-    ("PHP", "Php"),
-    ("QOS", "Qos"),
-    ("RAID", "Raid"),
-    ("RAMDisk", "Ramdisk"),
-    ("RDS", "Rds"),
-    ("SDK", "Sdk"),
-    ("SGD", "Sgd"),
-    ("SNI", "Sni"),
-    ("SNS", "Sns"),
-    ("SRIOV", "Sriov"),
-    ("SSH", "Ssh"),
-    ("SSL", "Ssl"),
-    ("SSO", "Sso"),
-    ("SVN", "Svn"),
-    ("TCP", "Tcp"),
-    ("TDE", "Tde"),
-    ("TGZ", "Tgz"),
-    ("TLS", "Tls"),
-    ("URI", "Uri"),
-    ("URL", "Url"),
-    ("VGW", "Vgw"),
-    ("VHD", "Vhd"),
-    ("VIP", "Vip"),
-    ("VLAN", "Vlan"),
-    ("VMDK", "Vmdk"),
-    ("VPC", "Vpc"),
-    ("VPN", "Vpn"),
-    ("XLarge", "Xlarge"),
-    ("XML", "Xml"),
-    ("XSS", "Xss")
-  ]
+lowerFirstAcronym x
+  | Text.all Char.isUpper x = Text.toLower x
+  | otherwise = Manipulate.lowerHead x

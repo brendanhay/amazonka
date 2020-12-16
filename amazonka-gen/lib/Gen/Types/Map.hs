@@ -30,8 +30,8 @@ vMapMaybe ::
   InsOrdHashMap k b
 vMapMaybe f = runIdentity . kvTraverseMaybe (const (pure . f))
 
-kvInvert :: (Eq v, Hashable v) => InsOrdHashMap k v -> InsOrdHashMap v k
-kvInvert = kvTraversal %~ Tuple.swap
+-- kvInvert :: (Eq v, Hashable v) => InsOrdHashMap k v -> InsOrdHashMap v k
+-- kvInvert = kvTraversal %~ Tuple.swap
 
 kvTraverseMaybe ::
   (Applicative f, Eq k, Hashable k) =>

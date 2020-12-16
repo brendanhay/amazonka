@@ -11,6 +11,7 @@ module Network.AWS.Prelude
   )
 where
 
+import Control.Applicative as Export ((<|>))
 import Control.DeepSeq as Export (NFData)
 import Data.Function as Export ((&))
 import Data.HashMap.Strict as Export (HashMap)
@@ -18,6 +19,7 @@ import Data.Hashable as Export (Hashable)
 import Data.List.NonEmpty as Export (NonEmpty (..))
 import Data.Maybe as Export
 import Data.Monoid as Export (First)
+import Data.String as Export (IsString)
 import GHC.Exts as Export (toList)
 import GHC.Generics as Export (Generic)
 import Network.AWS.Data.Base64 as Export
@@ -30,7 +32,7 @@ import Network.AWS.Data.Path as Export
 import Network.AWS.Data.Query as Export
 import Network.AWS.Data.Sensitive as Export
 import Network.AWS.Data.Text as Export
-import Network.AWS.Data.Time as Export (DateTime, Time (..), Timestamp, _Time)
+import Network.AWS.Data.Time as Export (NominalDiffTime, UTCTime)
 import Network.AWS.Data.XML as Export
 import Network.AWS.Endpoint as Export
 import Network.AWS.Error as Export

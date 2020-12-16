@@ -103,9 +103,7 @@ library
     , semigroups
     , template-haskell
     , text
-    , text-icu
     , text-manipulate            >=0.3
-    , text-regex-replace
     , time                       >=1.9
     , transformers
     , unordered-containers

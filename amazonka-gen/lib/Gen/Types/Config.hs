@@ -15,6 +15,7 @@ module Gen.Types.Config where
 import qualified Control.Lens as Lens
 import qualified Data.Aeson as Aeson
 import Data.Aeson.Types (Value (..), (.!=), (.:), (.:?), (.=))
+import qualified Data.HashMap.Strict.InsOrd as HashMap
 import qualified Data.List as List
 import qualified Data.Ord as Ord
 import qualified Data.Text as Text
@@ -173,14 +174,14 @@ instance ToJSON Library where
             "clientVersion" .= (l ^. clientVersion),
             "coreVersion" .= (l ^. coreVersion),
             "serviceInstance" .= (l ^. instance'),
-            "typeModules" .= List.sort (l ^. typeModules),
-            "operationModules" .= List.sort (l ^. operationModules),
-            "exposedModules" .= List.sort (l ^. exposedModules),
-            "otherModules" .= List.sort (l ^. otherModules),
-            "extraDependencies" .= List.sort (l ^. extraDependencies),
-            "operations" .= (l ^.. operations . Lens.traversed),
-            "shapes" .= List.sort (l ^.. shapes . Lens.traversed),
-            "waiters" .= (l ^.. waiters . Lens.traversed)
+            "typeModules" .= (l ^. typeModules),
+            "operationModules" .= (l ^. operationModules),
+            "exposedModules" .= (l ^. exposedModules),
+            "otherModules" .= (l ^. otherModules),
+            "extraDependencies" .= (l ^. extraDependencies),
+            "operations" .= HashMap.elems (l ^. operations),
+            "shapes" .= HashMap.elems (l ^. shapes),
+            "waiters" .= HashMap.elems (l ^. waiters)
           ]
 
 -- FIXME: Remove explicit construction of getters, just use functions.
@@ -196,7 +197,7 @@ otherModules = Lens.to f
     f x =
       x ^. operationModules
         <> x ^. typeModules
-        <> mapMaybe (shapeNS x) (x ^.. shapes . Lens.traversed)
+        <> mapMaybe (shapeNS x) (HashMap.elems (x ^. shapes))
 
     shapeNS x = \case
       s@Prod {} -> Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
@@ -210,7 +211,7 @@ exposedModules = Lens.to f
       let ns = x ^. libraryNS
        in x ^. typesNS :
           x ^. waitersNS :
-          x ^.. operations . Lens.traversed . Lens.to (operationNS ns . Lens.view opName)
+          map (operationNS ns . Lens.view opName) (HashMap.elems (x ^. operations))
 
 data Templates = Templates
   { cabalTemplate :: !Template,

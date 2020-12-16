@@ -300,5 +300,5 @@ normaliseHeaders =
     . filter ((/= "content-length") . fst)
 
 formatAWSTime, formatBasicTime :: UTCTime -> ByteString
-formatAWSTime = BS8.pack . formatDateTime awsFormat . Time
-formatBasicTime = BS8.pack . formatDateTime basicFormat . Time
+formatAWSTime = BS8.pack . formatDateTime awsFormat
+formatBasicTime = BS8.pack . formatDateTime basicFormat

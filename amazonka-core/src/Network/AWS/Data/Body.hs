@@ -36,7 +36,7 @@ import Network.AWS.Data.ByteString
 import Network.AWS.Data.Crypto
 import Network.AWS.Data.Log
 import Network.AWS.Data.Query (QueryString)
-import Network.AWS.Data.XML (encodeXML)
+import Network.AWS.Data.XML (ToElement, encodeXML)
 import Network.AWS.Lens (AReview, Lens', lens, to, un)
 import Network.HTTP.Conduit
 import Text.XML (Element)
@@ -188,24 +188,32 @@ class ToHashedBody a where
 instance ToHashedBody ByteString where
   toHashed x = HashedBytes (hash x) x
 
-instance ToHashedBody HashedBody where toHashed = id
+instance ToHashedBody HashedBody where
+  toHashed = id
 
-instance ToHashedBody String where toHashed = toHashed . LBS8.pack
+instance ToHashedBody String where
+  toHashed = toHashed . LBS8.pack
 
-instance ToHashedBody LBS.ByteString where toHashed = toHashed . toBS
+instance ToHashedBody LBS.ByteString where
+  toHashed = toHashed . toBS
 
-instance ToHashedBody Text where toHashed = toHashed . Text.encodeUtf8
+instance ToHashedBody Text where
+  toHashed = toHashed . Text.encodeUtf8
 
-instance ToHashedBody LText.Text where toHashed = toHashed . LText.encodeUtf8
+instance ToHashedBody LText.Text where
+  toHashed = toHashed . LText.encodeUtf8
 
-instance ToHashedBody Value where toHashed = toHashed . encode
+-- instance ToHashedBody Value where
+--   toHashed = toHashed . encode
 
-instance ToHashedBody Element where toHashed = toHashed . encodeXML
+-- instance ToHashedBody Element where
+--   toHashed = toHashed . encodeXML
 
-instance ToHashedBody QueryString where toHashed = toHashed . toBS
+-- instance ToHashedBody QueryString where
+--   toHashed = toHashed . toBS
 
-instance ToHashedBody (HashMap Text Value) where
-  toHashed = toHashed . Object
+-- instance ToHashedBody (HashMap Text Value) where
+--   toHashed = toHashed . Object
 
 -- | Anything that can be converted to a streaming request 'Body'.
 class ToBody a where
@@ -214,11 +222,14 @@ class ToBody a where
   default toBody :: ToHashedBody a => a -> RqBody
   toBody = Hashed . toHashed
 
-instance ToBody RqBody where toBody = id
+instance ToBody RqBody where
+  toBody = id
 
-instance ToBody HashedBody where toBody = Hashed
+instance ToBody HashedBody where
+  toBody = Hashed
 
-instance ToBody ChunkedBody where toBody = Chunked
+instance ToBody ChunkedBody where
+  toBody = Chunked
 
 instance ToHashedBody a => ToBody (Maybe a) where
   toBody = Hashed . maybe (toHashed BS.empty) toHashed
@@ -233,13 +244,25 @@ instance ToBody Text
 
 instance ToBody LText.Text
 
-instance ToBody (HashMap Text Value)
+-- instance ToBody (HashMap Text Value)
 
-instance ToBody Value
+-- instance ToBody Value
 
-instance ToBody Element
+-- instance ToBody Element
 
-instance ToBody QueryString
+-- instance ToBody QueryString
 
 _Body :: ToBody a => AReview RqBody a
 _Body = un (to toBody)
+
+toJSONBody :: ToJSON a => a -> RqBody
+toJSONBody = toBody . encode
+{-# INLINEABlE toJSONBody #-}
+
+toXMLBody :: ToElement a => a -> RqBody
+toXMLBody = toBody . encodeXML
+{-# INLINEABlE toXMLBody #-}
+
+toQueryBody :: QueryString -> RqBody
+toQueryBody = toBody . toBS
+{-# INLINEABlE toQueryBody #-}

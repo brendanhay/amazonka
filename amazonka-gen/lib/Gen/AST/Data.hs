@@ -58,17 +58,17 @@ operationData cfg m o = do
 
   mpage <- fmap (prettyPrint Block . pagerD xn) <$> pagerFields m o
 
-  let cls = prettyPrint Block (requestD cfg m h (xr, xis) (yr, ys))
+  let cls = prettyPrint Block (requestD cfg m h (xr, xis, xs) (yr, ys))
       yis' = mempty
       xis' =
         maybe id (HashMap.insert "AWSPager") mpage
           . HashMap.insert "AWSRequest" cls
-          $ ppInsts p xn xis
+          $ prettyInstances p xn xis
 
   pure
     $! o
-      { _opInput = Identity $ Prod (xa & relShared .~ 0) xd xis',
-        _opOutput = Identity $ Prod ya yd yis'
+      { _opInput = Identity (Prod (xa & relShared .~ 0) xd xis'),
+        _opOutput = Identity (Prod ya yd yis')
       }
   where
     struct (a :< Struct s) = Right (a, s)
@@ -97,7 +97,7 @@ shapeData m (a :< s) =
       Just (patternData p a i vs)
     Struct st ->
       let (decl, fields) = prodData m a st
-          instances = ppInsts p (a ^. annId) (shapeInsts p r fields)
+          instances = prettyInstances p (a ^. annId) (shapeInsts p r fields)
        in Just $ Prod a decl instances
     --
     _other -> Nothing
@@ -159,7 +159,11 @@ patternData p s i vs = Sum s mk (HashMap.keys instances)
       dataD
         name
         True
-        [ conD (Exts.ConDecl () (ident constructor) [(tycon "Lude.Text")])
+        [ conD $
+            (Exts.RecDecl ())
+              (ident constructor)
+              [ Exts.FieldDecl () [ident getter] (tycon "Core.Text")
+              ]
         ]
         (derivingOf s)
 
@@ -167,6 +171,7 @@ patternData p s i vs = Sum s mk (HashMap.keys instances)
 
     -- Disambiguate the constructor name to avoid clashes with type names.
     constructor = typeId name <> "'"
+    getter = "from" <> typeId name
 
     patterns =
       flip map (HashMap.toList vs) $ \(k, v) ->
@@ -175,7 +180,7 @@ patternData p s i vs = Sum s mk (HashMap.keys instances)
             _patText = v
           }
 
-    instances = ppInsts p name (shapeInsts p (s ^. relMode) [])
+    instances = prettyInstances p name (shapeInsts p (s ^. relMode) [])
 
 prodData ::
   HasMetadata a Identity =>
@@ -213,11 +218,11 @@ prodData m s st = (mk, fields)
         derivingD (length fields == 1) (derivingOf s)
 
     mkAccessor (label, decl, help) =
-        Accessor'
-          { _accessorName = label,
-            _accessorDecl = prettyPrint Inline decl,
-            _accessorDoc = help
-          }
+      Accessor'
+        { _accessorName = label,
+          _accessorDecl = prettyPrint Inline decl,
+          _accessorDoc = help
+        }
 
     fields :: [Field]
     fields = mkFields m s st
@@ -232,8 +237,8 @@ prodData m s st = (mk, fields)
               <> Help (fieldAccessor f)
               <> "' with <https://hackage.haskell.org/package/generic-lens generic-lens> or "
               <> "<https://hackage.haskell.org/package/generic-optics generic-optics> instead.",
-          _funSig = prettyPrint Inline (lensS m (s ^. annType) f),
-          _funDecl = prettyPrint Inline (lensD m (s ^. annType) f),
+          _funSig = prettyPrint Inline (lensS m n f),
+          _funDecl = prettyPrint Inline (lensD m n f),
           _funPragmas = [Text.Lazy.fromStrict (lensDeprecated f)]
         }
 
@@ -249,10 +254,7 @@ prodData m s st = (mk, fields)
 
     mkHelp :: Help
     mkHelp =
-      Help $
-        "Creates a value of '"
-          <> typeId n
-          <> "' with the minimum fields required to make a request."
+      Help ("Creates a '" <> typeId n <> "' value with any optional fields omitted.")
 
     -- FIXME: dirty hack to render smart ctor parameter haddock comments.
     addParamComments :: [Field] -> Rendered -> Rendered
@@ -264,28 +266,33 @@ prodData m s st = (mk, fields)
         . Text.Lazy.splitOn "->"
       where
         rel Nothing t = t
-        rel (Just p) t = t <> " -- ^ '" <> Text.Lazy.fromStrict (fieldAccessor p) <> "'"
+        rel (Just p) t = t <> " -- ^ '" <> escape (fieldAccessor p) <> "'"
+
+        escape (Text.Lazy.fromStrict -> text) =
+          flip Text.Lazy.concatMap text $ \case
+            '\'' -> "\\'"
+            c -> Text.Lazy.singleton c
 
         ps = map Just (filter fieldIsParam fs) ++ repeat Nothing
 
     dependencies = foldMap go fields
       where
-        tTypeDep :: Text -> Set.Set Text
-
         go :: TypeOf a => a -> Set.Set Text
-        go f = case (typeOf f) of
-          TType x _ -> tTypeDep x
-          TLit _ -> Set.empty
-          TNatural -> Set.empty
-          TStream -> Set.empty
-          TMaybe x -> go x
-          TSensitive x -> go x
-          TList x -> go x
-          TList1 x -> go x
-          TMap k v -> go k <> go v
+        go f =
+          case (typeOf f) of
+            TType x _ -> tTypeDep x
+            TLit _ -> Set.empty
+            TNatural -> Set.empty
+            TStream -> Set.empty
+            TMaybe x -> go x
+            TSensitive x -> go x
+            TList x -> go x
+            TList1 x -> go x
+            TMap k v -> go k <> go v
 
+        tTypeDep :: Text -> Set.Set Text
         tTypeDep x =
-          if (stripped /= typeId n)
+          if stripped /= typeId n
             then Set.singleton stripped
             else Set.empty
           where
@@ -295,10 +302,13 @@ prodData m s st = (mk, fields)
 
     n = s ^. annId
 
-ppInsts :: Protocol -> Id -> [Inst] -> InsOrdHashMap Text Text.Lazy.Text
-ppInsts p n =
-  HashMap.fromList
-    . map (\i -> (instToText i, prettyPrint Block (instanceD p n i)))
+prettyInstances :: Protocol -> Id -> [Inst] -> InsOrdHashMap Text Text.Lazy.Text
+prettyInstances protocol' name =
+  HashMap.fromList . mapMaybe pp
+  where
+    pp inst = do
+      decl <- instanceD protocol' name inst
+      pure (instToText inst, prettyPrint Block decl)
 
 serviceData ::
   HasMetadata a Identity =>

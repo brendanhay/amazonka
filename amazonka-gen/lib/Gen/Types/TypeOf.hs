@@ -111,9 +111,9 @@ derivingOf = uniq . typ . typeOf
       Text -> derivable <> string
       Base64 -> derivable
       Bytes -> derivable
-      Time -> derivable
+      Time {} -> List.delete DHashable derivable
       Bool -> derivable <> enum
-      Json -> [DEq, DShow, DGeneric, DHashable, DNFData]
+      JsonValue -> [DEq, DShow, DGeneric, DHashable, DNFData]
 
 stream, string, num, frac, monoid, enum, synonym :: [Derive]
 stream = [DShow, DGeneric]
@@ -123,7 +123,8 @@ frac = [DRealFrac, DRealFloat]
 monoid = [DMonoid, DSemigroup]
 enum = [DEnum, DBounded]
 synonym =
-  [ DToText,
+  [ DIsString,
+    DToText,
     DFromText,
     DToByteString,
     DToQuery,

@@ -138,6 +138,26 @@ isStockDerivable =
       DGeneric
     ]
 
+data Timestamp
+  = ISO8601
+  | POSIX
+  deriving stock (Eq, Show, Generic)
+
+tsToText :: Timestamp -> Text
+tsToText = \case
+  ISO8601 -> "UTCTime"
+  POSIX -> "NominalDiffTime"
+
+instance FromJSON Timestamp where
+  parseJSON =
+    Aeson.withText "timestamp" $ \case
+      "iso8601" -> pure ISO8601
+      "unixTimestamp" -> pure POSIX
+      e -> fail ("Unknown Timestamp: " ++ Text.unpack e)
+
+instance ToJSON Timestamp where
+  toJSON = Aeson.toJSON . tsToText
+
 data Lit
   = Int
   | Long
@@ -145,9 +165,9 @@ data Lit
   | Text
   | Base64
   | Bytes
-  | Time
+  | Time (Maybe Timestamp)
   | Bool
-  | Json
+  | JsonValue
   deriving stock (Eq, Show)
 
 data TypeF a

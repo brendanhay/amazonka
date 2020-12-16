@@ -27,6 +27,7 @@ import Data.Hashable (Hashable)
 import Data.List.NonEmpty (NonEmpty (..))
 import qualified Data.List.NonEmpty as NonEmpty
 import Data.Maybe
+import Data.Time (NominalDiffTime, UTCTime)
 import Data.XML.Types (Event (..))
 import GHC.Exts
 import Network.AWS.Data.ByteString
@@ -114,19 +115,29 @@ instance FromXML a => FromXML (Maybe a) where
 instance FromXML Text where
   parseXML = fmap (fromMaybe mempty) . withContent "Text"
 
-instance FromXML Char where parseXML = parseXMLText "Char"
+instance FromXML Char where
+  parseXML = parseXMLText "Char"
 
-instance FromXML ByteString where parseXML = parseXMLText "ByteString"
+instance FromXML ByteString where
+  parseXML = parseXMLText "ByteString"
 
-instance FromXML Int where parseXML = parseXMLText "Int"
+instance FromXML Int where
+  parseXML = parseXMLText "Int"
 
-instance FromXML Integer where parseXML = parseXMLText "Integer"
+instance FromXML Integer where
+  parseXML = parseXMLText "Integer"
 
-instance FromXML Natural where parseXML = parseXMLText "Natural"
+instance FromXML Natural where
+  parseXML = parseXMLText "Natural"
 
-instance FromXML Double where parseXML = parseXMLText "Double"
+instance FromXML Double where
+  parseXML = parseXMLText "Double"
 
-instance FromXML Bool where parseXML = parseXMLText "Bool"
+instance FromXML Bool where
+  parseXML = parseXMLText "Bool"
+
+instance FromXML UTCTime where
+  parseXML = parseXMLText "UTCTime"
 
 class ToElement a where
   toElement :: a -> Element
@@ -188,19 +199,29 @@ instance ToXML a => ToXML (Maybe a) where
   toXML (Just x) = toXML x
   toXML Nothing = XNull
 
-instance ToXML Text where toXML = toXMLText
+instance ToXML Text where
+  toXML = toXMLText
 
-instance ToXML ByteString where toXML = toXMLText
+instance ToXML ByteString where
+  toXML = toXMLText
 
-instance ToXML Int where toXML = toXMLText
+instance ToXML Int where
+  toXML = toXMLText
 
-instance ToXML Integer where toXML = toXMLText
+instance ToXML Integer where
+  toXML = toXMLText
 
-instance ToXML Natural where toXML = toXMLText
+instance ToXML Natural where
+  toXML = toXMLText
 
-instance ToXML Double where toXML = toXMLText
+instance ToXML Double where
+  toXML = toXMLText
 
-instance ToXML Bool where toXML = toXMLText
+instance ToXML Bool where
+  toXML = toXMLText
+
+instance ToXML UTCTime where
+  toXML = toXMLText
 
 parseXMLMap ::
   (Eq k, Hashable k, FromText k, FromXML v) =>

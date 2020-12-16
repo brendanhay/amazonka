@@ -12,6 +12,9 @@
 -- Portability : non-portable (GHC extensions)
 module Gen.AST.Subst
   ( substitute,
+    emptyStruct,
+    emptyInfo,
+    emptyRef,
   )
 where
 
@@ -191,6 +194,8 @@ emptyInfo =
     { _infoDocumentation = Nothing,
       _infoMin = Nothing,
       _infoMax = Nothing,
+      _infoPattern = Nothing,
+      _infoTimestamp = Nothing,
       _infoFlattened = False,
       _infoSensitive = False,
       _infoStreaming = False,
@@ -199,10 +204,10 @@ emptyInfo =
     }
 
 emptyRef :: Id -> RefF ()
-emptyRef n =
+emptyRef name =
   RefF
     { _refAnn = (),
-      _refShape = n,
+      _refShape = name,
       _refDocumentation = Nothing,
       _refLocation = Nothing,
       _refLocationName = Nothing,

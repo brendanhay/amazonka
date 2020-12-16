@@ -20,6 +20,7 @@ import qualified Data.HashMap.Strict.InsOrd as HashMap
 import qualified Data.HashSet as HashSet
 import qualified Data.Maybe as Maybe
 import qualified Data.Tree as Tree
+import Debug.Trace
 import Gen.AST.Cofree
 import Gen.AST.Data
 import Gen.AST.Override
@@ -36,9 +37,10 @@ rewrite ::
   Service Maybe (RefF ()) (ShapeF ()) (Waiter Id) ->
   Either String Library
 rewrite versions cfg svc = do
-  ignored <- ignoreUnusedShapes svc
-  rewritten <- rewriteService cfg (deprecateOperations ignored)
-  rendered <- renderShapes cfg rewritten
+  let expanded = svc & shapes %~ replaceStrings
+
+  rewritten <- rewriteService cfg (deprecateOperations expanded)
+  rendered <- renderShapes cfg (ignoreUnusedShapes rewritten)
 
   pure $! Library versions cfg rendered $
     serviceData (rendered ^. metadata) (rendered ^. retry)
@@ -47,51 +49,41 @@ deprecateOperations :: Service f a b c -> Service f a b c
 deprecateOperations = operations %~ HashMap.filter (not . Lens.view opDeprecated)
 
 ignoreUnusedShapes ::
-  Service Maybe (RefF ()) (ShapeF ()) c ->
-  Either String (Service Maybe (RefF ()) (ShapeF ()) c)
-ignoreUnusedShapes svc = do
-  shapes' :: InsOrdHashMap Id (Shape Id) <- elaborate (_shapes svc)
+  Service Identity (RefF ()) (Shape Related) c ->
+  Service Identity (RefF ()) (Shape Related) c
+ignoreUnusedShapes svc =
+  svc & shapes %~ HashMap.filterWithKey (\k _v -> HashSet.member k reachableSet)
+  where
+    shapeIds :: InsOrdHashMap Id [Id]
+    shapeIds =
+      HashMap.map (map identifier . Foldable.toList) (_shapes svc)
 
-  let shapeIds :: InsOrdHashMap Id [Id]
-      shapeIds =
-        HashMap.map Foldable.toList shapes'
+    ( graph :: Graph,
+      nodeFromVertex :: Vertex -> ((), Id, [Id]),
+      vertexFromId :: Id -> Maybe Vertex
+      ) =
+        Graph.graphFromEdges
+          . map (\(k, vs) -> ((), k, vs))
+          $ HashMap.toList shapeIds
 
-      ( graph :: Graph,
-        nodeFromVertex :: Vertex -> ((), Id, [Id]),
-        vertexFromId :: Id -> Maybe Vertex
-        ) =
-          Graph.graphFromEdges
-            . map (\(k, vs) -> ((), k, vs))
-            $ HashMap.toList shapeIds
+    requestResponseIds :: [Id]
+    requestResponseIds =
+      flip concatMap (HashMap.elems (_operations svc)) $ \op ->
+        [ runIdentity (_refShape <$> _opInput op :: Identity Id),
+          runIdentity (_refShape <$> _opOutput op :: Identity Id)
+        ]
 
-      requestResponseIds :: [Id]
-      requestResponseIds =
-        flip concatMap (HashMap.elems (_operations svc)) $ \op ->
-          Maybe.maybeToList (_refShape <$> _opInput op :: Maybe Id)
-            ++ Maybe.maybeToList (_refShape <$> _opOutput op :: Maybe Id)
+    rootVertices :: [Vertex]
+    rootVertices =
+      Maybe.mapMaybe vertexFromId requestResponseIds
 
-      rootVertices :: [Vertex]
-      rootVertices =
-        Maybe.mapMaybe vertexFromId requestResponseIds
+    reachableVertices :: [Vertex]
+    reachableVertices =
+      concatMap Tree.flatten (Graph.dfs graph rootVertices)
 
-      reachableVertices :: [Vertex]
-      reachableVertices =
-        concatMap Tree.flatten (Graph.dfs graph rootVertices)
-
-      reachableSet :: HashSet Id
-      reachableSet =
-        HashSet.fromList (map (Lens.view Lens._2 . nodeFromVertex) reachableVertices)
-
-  pure
-    svc
-      { _shapes =
-          HashMap.filterWithKey
-            (\k _v -> HashSet.member k reachableSet)
-            -- if HashSet.member k reachableSet
-            --   then True
-            --   else trace ("Ignoring" ++ show k) False)
-            (_shapes svc)
-      }
+    reachableSet :: HashSet Id
+    reachableSet =
+      HashSet.fromList (map (Lens.view Lens._2 . nodeFromVertex) reachableVertices)
 
 rewriteService ::
   Config ->
@@ -99,7 +91,7 @@ rewriteService ::
   Either String (Service Identity (RefF ()) (Shape Related) (Waiter Id))
 rewriteService cfg s = do
   -- Determine which direction (input, output, or both) shapes are used.
-  rs <- relations (s ^. operations) (s ^. shapes)
+  rs <- determineRelations (s ^. operations) (s ^. shapes)
   -- Elaborate the shape map into a comonadic strucutre for traversing.
   elaborate (s ^. shapes)
     -- Annotate the comonadic tree with the associated
@@ -124,9 +116,9 @@ renderShapes cfg svc = do
     prefixes (svc ^. shapes)
       -- Determine the appropriate Haskell AST type, auto deriveable instances,
       -- and fully rendered instances.
-      >>= pure . solve cfg
+      >>= pure . solveShapes cfg
       -- Separate the operation input/output shapes from the .Types shapes.
-      >>= separate (svc ^. operations)
+      >>= separateOperations (svc ^. operations)
 
   -- Prune anything that is an orphan, or not an exception
   let prune = HashMap.filter $ \s -> not (isOrphan s) || s ^. infoException
@@ -151,12 +143,13 @@ type MemoR = StateT (InsOrdHashMap Id Relation, HashSet (Id, Direction, Id)) (Ei
 --
 -- /Note:/ This currently doesn't operate Lens.over the free AST, since it's also
 -- used by 'setDefaults'.
-relations ::
+determineRelations ::
   Show a =>
   InsOrdHashMap Id (Operation Maybe (RefF b) c) ->
   InsOrdHashMap Id (ShapeF a) ->
   Either String (InsOrdHashMap Id Relation)
-relations os ss = fst <$> State.execStateT (traverse go os) (mempty, mempty)
+determineRelations os ss =
+  fst <$> State.execStateT (traverse go os) (mempty, mempty)
   where
     -- FIXME: opName here is incorrect as a parent.
     go :: Operation Maybe (RefF a) b -> MemoR ()
@@ -200,12 +193,13 @@ relations os ss = fst <$> State.execStateT (traverse go os) (mempty, mempty)
           Right ok
 
 -- FIXME: Necessary to update the Relation?
-solve ::
+solveShapes ::
   Traversable t =>
   Config ->
   t (Shape Prefixed) ->
   t (Shape Solved)
-solve cfg ss = State.evalState (go ss) (replaced typeOf cfg)
+solveShapes cfg ss =
+  State.evalState (go ss) (replaced typeOf cfg)
   where
     go = traverse (annotate Solved id (pure . typeOf))
 
@@ -219,17 +213,80 @@ solve cfg ss = State.evalState (go ss) (replaced typeOf cfg)
 
 type MemoS a = StateT (InsOrdHashMap Id a) (Either String)
 
+-- | Create a newtype wrapper for all top-level string literals and struct fields.
+replaceStrings ::
+  InsOrdHashMap Id (ShapeF ()) ->
+  InsOrdHashMap Id (ShapeF ())
+replaceStrings shapes =
+  State.execState (HashMap.traverseWithKey replaceShape shapes) shapes
+  where
+    replaceShape name = \case
+      Struct struct -> do
+        members' <- HashMap.traverseWithKey replaceField (_members struct)
+        State.modify' $
+          HashMap.insert name (Struct (struct & members .~ members'))
+      --
+      Lit info Text ->
+        when (name /= stringName) $
+          State.modify' $
+            HashMap.insert name (emptyEnum emptyInfo)
+      --
+      _other ->
+        pure ()
+
+    replaceField label ref
+      | _refShape ref /= stringName = pure ref
+      | otherwise = do
+        let name = mkId (typeId label)
+
+        State.gets (HashMap.lookup name) >>= \case
+          Nothing -> do
+            State.modify' $
+              HashMap.insert name (emptyEnum emptyInfo)
+
+            pure ref {_refShape = name}
+          --
+          Just (Enum info values)
+            | info == emptyInfo && HashMap.null values ->
+              pure ref {_refShape = name}
+          --
+          Just (Lit info Text)
+            | info == emptyInfo ->
+              pure ref {_refShape = name}
+          Just _ ->
+            pure ref
+
+    stringName =
+      UnsafeId "String" "String"
+
+    emptyEnum =
+      flip Enum mempty
+
+    emptyInfo =
+      Info
+        { _infoDocumentation = Nothing,
+          _infoMin = Nothing,
+          _infoMax = Nothing,
+          _infoPattern = Nothing,
+          _infoTimestamp = Nothing,
+          _infoFlattened = False,
+          _infoSensitive = False,
+          _infoStreaming = False,
+          _infoException = False,
+          _infoError = Nothing
+        }
+
 -- | Filter the ids representing operation input/outputs from the supplied map,
 -- and attach the associated shape to the appropriate operation.
 --
--- Pures either an error result or the operations paired with
+-- Returns either an error result or the operations paired with
 -- the respective data types.
-separate ::
+separateOperations ::
   (Show a, HasRelation a) =>
   InsOrdHashMap Id (Operation Identity (RefF b) c) ->
   InsOrdHashMap Id a ->
   Either String (InsOrdHashMap Id (Operation Identity (RefF a) c), InsOrdHashMap Id a)
-separate os = State.runStateT (traverse go os)
+separateOperations os = State.runStateT (traverse go os)
   where
     go ::
       (HasRelation b) =>
@@ -259,6 +316,6 @@ separate os = State.runStateT (traverse go os)
         --
         Just x -> do
           when (d == Input || not (isShared x)) $
-            State.modify (HashMap.delete n)
+            State.modify' (HashMap.delete n)
 
           pure x

@@ -6,14 +6,11 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lens
-  ( module Ex,
-    module Ty,
-    module Fn,
-    module Op,
+  ( module Export,
   )
 where
 
-import Control.Exception.Lens as Ex
+import Control.Exception.Lens as Export
   ( catching,
     catching_,
     exception,
@@ -21,8 +18,20 @@ import Control.Exception.Lens as Ex
     trying,
     _IOException,
   )
-import Control.Lens as Fn
-  ( allOf,
+import Control.Lens as Export
+  ( AReview,
+    Choice,
+    Fold,
+    Getter,
+    Getting,
+    IndexedTraversal',
+    Iso',
+    Lens',
+    Optic',
+    Prism',
+    Setter',
+    Traversal',
+    allOf,
     anyOf,
     concatOf,
     filtered,
@@ -38,13 +47,6 @@ import Control.Lens as Fn
     traversed,
     un,
     view,
-    _1,
-    _2,
-    _Just,
-    _last,
-  )
-import Control.Lens as Op
-  ( (#),
     (%~),
     (&),
     (.~),
@@ -53,18 +55,11 @@ import Control.Lens as Op
     (?~),
     (^.),
     (^?),
+    _1,
+    _2,
+    _Just,
+    _last,
   )
-import Control.Lens as Ty
-  ( AReview,
-    Choice,
-    Fold,
-    Getter,
-    Getting,
-    IndexedTraversal',
-    Iso',
-    Lens',
-    Optic',
-    Prism',
-    Setter',
-    Traversal',
+import Data.Generics.Product.Fields as Export
+  ( HasField (field),
   )

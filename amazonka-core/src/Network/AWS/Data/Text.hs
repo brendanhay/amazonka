@@ -36,7 +36,9 @@ import Data.Text.Lazy.Builder (Builder)
 import qualified Data.Text.Lazy.Builder as Build
 import qualified Data.Text.Lazy.Builder.Int as Build
 import qualified Data.Text.Lazy.Builder.Scientific as Build
+import Data.Time (Day (..), NominalDiffTime, UTCTime (..))
 import Network.AWS.Data.Crypto
+import Network.AWS.Data.Time
 import Network.HTTP.Types
 import Numeric
 import Numeric.Natural
@@ -76,6 +78,9 @@ instance FromText Natural where
 
 instance FromText Double where
   fromText = parseText (A.signed A.rational)
+
+instance FromText UTCTime where
+  fromText = parseDateTime iso8601Format . Text.unpack
 
 instance FromText Bool where
   fromText = \case
@@ -130,6 +135,9 @@ instance ToText StdMethod where
 
 instance ToText (Digest a) where
   toText = toText . digestToBase Base16
+
+instance ToText UTCTime where
+  toText = Text.pack . formatDateTime iso8601Format
 
 instance ToText Bool where
   toText = \case

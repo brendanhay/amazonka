@@ -27,12 +27,12 @@ data Level = Flat | Nest
 
 suffix :: Protocol -> Text
 suffix = \case
-  JSON -> "JSON"
-  RestJSON -> "JSON"
-  APIGateway -> "JSON"
-  RestXML -> "XML"
+  Json -> "JSON"
+  RestJson -> "JSON"
+  ApiGateway -> "JSON"
+  RestXml -> "XML"
   Query -> "XML"
-  EC2 -> "XML"
+  Ec2 -> "XML"
 
 data Names
   = NMap (Maybe Text) Text Text Text
@@ -57,8 +57,8 @@ nestedNames p d n r =
 listNames :: Protocol -> Direction -> Id -> RefF a -> ListF a -> Names
 listNames p d n r l = uncurry NList (go p d flat)
   where
-    go EC2 Input _ = (Nothing, Manipulate.upperHead (fromMaybe member refQuery))
-    go EC2 Output _ = (Just member, fromMaybe def itemName)
+    go Ec2 Input _ = (Nothing, Manipulate.upperHead (fromMaybe member refQuery))
+    go Ec2 Output _ = (Just member, fromMaybe def itemName)
     go Query Input Flat = (Nothing, fromMaybe member itemQuery)
     go Query Input Nest = (Just member, fromMaybe def itemQuery)
     go _ _ Flat = (Nothing, fromMaybe member itemName)
@@ -123,7 +123,7 @@ mapNames p d n r m
 name :: Protocol -> Direction -> Id -> RefF a -> Text
 name p d n r = go p d
   where
-    go EC2 Input = Manipulate.upperHead $ fromMaybe key (r ^. refQueryName)
+    go Ec2 Input = Manipulate.upperHead $ fromMaybe key (r ^. refQueryName)
     go _ _ = key
 
     -- Use the locationName on the struct member if present,
@@ -131,5 +131,5 @@ name p d n r = go p d
     key = fromMaybe (memberId n) (r ^. refLocationName)
 
 flatten :: HasInfo a => Protocol -> Direction -> a -> Bool
-flatten EC2 Input _ = True
+flatten Ec2 Input _ = True
 flatten _ _ i = i ^. infoFlattened

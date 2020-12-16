@@ -86,13 +86,7 @@ instance ToJSON Method where
   toJSON = Aeson.toJSON . methodToText
 
 methodToText :: Method -> Text
-methodToText = \case
-  GET -> "get"
-  POST -> "post"
-  HEAD -> "head'"
-  PUT -> "put"
-  DELETE -> "delete"
-  PATCH -> "patch"
+methodToText = Text.pack . show
 
 data HTTP = HTTP
   { _method :: !Method,

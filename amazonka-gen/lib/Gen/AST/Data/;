@@ -797,11 +797,10 @@ requestF cfg meta http ref instances fields =
       Exts.Match () (ident "request") [wildcard] (unguarded rhs) Nothing
 
     wildcard =
-      Exts.PAsPat () (ident "x") $
-        Exts.PRec () (unqual (ctorId (identifier ref))) $
-          if null fields
-            then []
-            else [Exts.PFieldWildcard ()]
+      Exts.PRec () (unqual (ctorId (identifier ref))) $
+        if null fields
+          then []
+          else [Exts.PFieldWildcard ()]
 
     rhs = maybe newRequest (Foldable.foldr' applyPlugin newRequest) plugins
 
@@ -809,88 +808,83 @@ requestF cfg meta http ref instances fields =
       HashMap.lookup (identifier ref) (cfg ^. operationPlugins)
 
     applyPlugin x =
-      Exts.infixApp (var ("Request." <> x)) "Core.$"
+      Exts.infixApp (var x) "Core.."
 
     newRequest =
       case listToMaybe (mapMaybe bodyFunction instances) of
-        Nothing -> record queryVar (headersVar []) (str "")
-        Just mk -> mk
+        Just function -> function
+        Nothing -> mkRequest [queryVar, headersVar, str ""]
+  
+    
 
-    bodyFunction = \case
-      ToBody field ->
-        Just $
-          record
-            queryVar
-            (headersVar [])
-            (Exts.app (var (fieldAccessor field)) (var "x"))
-      --
-      ToJSON {} ->
-        Just $
-          record
-            queryVar
-            (headersVar [])
-            (Exts.app (var "Core.toJSONBody") (var "x"))
-      --
-      ToElement {} ->
-        Just $
-          record
-            queryVar
-            (headersVar [])
-            (Exts.app (var "Core.toXMLBody") (var "x"))
-      --
-      _other
-        | method' == POST && (protocol' == Query || protocol' == Ec2) ->
-          Just $
-            record
-              (var "Core.mempty")
-              (headersVar [Left ("Content-Type", hFormEncoded)])
-              (Exts.app (var "Core.toQueryBody") queryVar)
-      --
-      --
-      _other ->
-        Nothing
-
-    toBody =
-      Exts.app (var "Core.toBody")
-
-    hFormEncoded =
-      "application/x-www-form-urlencoded; charset=utf-8"
-
-    record query headers body =
+    newRequest query headers body =
       recConstr
         (unqual "Core.Request")
         [ field
             (unqual "Core._rqService")
             (var ("Types." <> meta ^. serviceConfig)),
+
           field
             (unqual "Core._rqMethod")
-            (var ("Request." <> methodToText method')),
+            (var ("Core." <> methodToText method'))
+
           field
             (unqual "Core._rqPath")
             (Exts.app (var "Core.rawPath") pathVar),
+
           field
             (unqual "Core._rqQuery")
             query,
+
           field
             (unqual "Core._rqHeaders")
             headers,
+
           field
             (unqual "Core._rqBody")
             body
-        ]
+          ]
 
-    pathVar =
-      newVar [toPathE xs | ToPath xs <- instances]
+    bodyFunction = \case
+      ToBody field ->
+        Just $
+          mkRequest
+            [ queryVar,
+              headersVar,
+              Exts.app (var (fieldAccessor field)) (var "x")
+            ]
+      --
+      ToJSON {} ->
+        Just $ mkRequest [queryVar, headersVar, var "x"]
+      --
+      ToElement {} ->
+        Just $ mkRequest [queryVar, headersVar, var "x"]
+      --
+      _
+        | protocol' == Query && method' == POST ->
+          Just $ mkRequest [var "Core.mempty", headersVar, queryVar]
+      --
+      _
+        | protocol' == Ec2 && method' == POST ->
+          Just $ mkRequest [var "Core.mempty", headersVar, queryVar]
+      --
+      _ ->
+        Nothing
 
-    headersVar extra =
-      newVar [toHeadersE protocol' (extra ++ xs) | ToHeaders xs <- instances]
+    mkRequest =
+      Exts.appFun (var "Request.mkRequest")
+        . ( var ("Types." <> meta ^. serviceConfig)
+          : var ("Core." <> methodToText method')
+          : pathVar
+          )
 
-    queryVar =
-      newVar [toQueryE protocol' xs | ToQuery xs <- instances]
+    pathVar = newVar [toPathE xs | ToPath xs <- instances]
+    headersVar = newVar [toHeadersE protocol' xs | ToHeaders xs <- instances]
+    queryVar = newVar [toQueryE protocol' xs | ToQuery xs <- instances]
 
     newVar =
       fromMaybe (var "Core.mempty")
-        . listToMaybe
+        . listToMaybe 
 
     protocol' = meta ^. protocol
     method' = http ^. method

@@ -78,7 +78,9 @@ library
     , cryptonite            >=0.4
     , deepseq               >=1.4
     , exceptions            >=0.10
+    , generic-lens          >=1.1
     , hashable              >=1.2
+    , http-api-data         >=0.3.8
     , http-client           >=0.5
     , http-conduit          >=2.3
     , http-types            >=0.8

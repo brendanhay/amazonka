@@ -19,6 +19,7 @@ import qualified Control.Lens as Lens
 import qualified Control.Monad.Fail as Fail
 import qualified Data.Aeson as Aeson
 import Data.Aeson.Types (Object, Value, (.=))
+import qualified Data.HashMap.Strict.InsOrd as HashMap
 import qualified Data.Maybe as Maybe
 import qualified Data.Set as Set
 import qualified Data.Text as Text
@@ -78,11 +79,11 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
                 [ dir
                     "AWS"
                     [ dir svc $
-                        [ dir "Types" (mapMaybe shape (l ^.. shapes . Lens.traversed)),
+                        [ dir "Types" (mapMaybe shape (HashMap.elems (l ^. shapes))),
                           mod (l ^. typesNS) (typeImports l) typesTemplate,
                           mod (l ^. waitersNS) (waiterImports l) waitersTemplate
                         ]
-                          ++ map op (l ^.. operations . Lens.traversed),
+                          ++ map op (HashMap.elems (l ^. operations)),
                       mod (l ^. libraryNS) mempty tocTemplate
                     ]
                 ]
@@ -114,8 +115,7 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
                     ]
                 ]
             ],
-          dir "fixture" $
-            concatMap fixture (l ^.. operations . Lens.traversed),
+          dir "fixture" (concatMap fixture (HashMap.elems (l ^. operations))),
           file (lib <.> "cabal") cabalTemplate,
           file "README.md" readmeTemplate
         ]
@@ -146,7 +146,7 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
       where
         n = typeId (_opName o)
 
-    mod :: NS -> [NS] -> Template -> DirTree (Either String Touch)
+    mod :: NS -> [Text] -> Template -> DirTree (Either String Touch)
     mod n is t = write $ module' n is t (pure env)
 
     file :: FilePath -> Template -> DirTree (Either String Touch)
@@ -160,10 +160,11 @@ operation' ::
   Template ->
   Operation Identity SData a ->
   DirTree (Either String Rendered)
-operation' l t o = module' n is t $ do
-  x <- JSON.objectErr (show n) o
-  y <- JSON.objectErr "metadata" (Aeson.toJSON m)
-  pure $! y <> x
+operation' l t o =
+  module' n is t $ do
+    x <- JSON.objectErr (show n) o
+    y <- JSON.objectErr "metadata" (Aeson.toJSON m)
+    pure $! y <> x
   where
     n = operationNS (l ^. libraryNS) (o ^. opName)
     m = l ^. metadata
@@ -175,7 +176,8 @@ shape' ::
   Template ->
   SData ->
   DirTree (Either String Rendered)
-shape' l t s = module' n (is s) t $ pure env
+shape' l t s =
+  module' n (is s) t $ pure env
   where
     n = (l ^. typesNS) <> ((mkNS . typeId) $ identifier s)
 
@@ -188,7 +190,7 @@ shape' l t s = module' n (is s) t $ pure env
 module' ::
   ToJSON a =>
   NS ->
-  [NS] ->
+  [Text] ->
   Template ->
   Either String a ->
   DirTree (Either String Rendered)

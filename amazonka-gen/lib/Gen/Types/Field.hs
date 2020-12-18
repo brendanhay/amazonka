@@ -1,7 +1,7 @@
 {-# LANGUAGE TemplateHaskell #-}
 
 -- |
--- Module      : Gen.AST.Data.Field
+-- Module      : Gen.Types.Field
 -- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -10,7 +10,7 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Gen.AST.Data.Field where
+module Gen.Types.Field where
 
 import qualified Control.Comonad.Cofree as Comonad.Cofree
 import qualified Control.Lens as Lens
@@ -21,7 +21,11 @@ import qualified Data.Maybe as Maybe
 import qualified Data.Text as Text
 import qualified Data.Text.Manipulate as Manipulate
 import Gen.Prelude
-import Gen.Types
+import Gen.Types.Ann
+import Gen.Types.Help
+import Gen.Types.Id
+import Gen.Types.Service
+import Gen.Types.TypeOf
 import Language.Haskell.Exts.Syntax (Name (..))
 
 -- | Convenience type to package up some information from the struct with the

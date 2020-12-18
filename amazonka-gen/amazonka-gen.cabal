@@ -110,29 +110,30 @@ library
     , xml-conduit
 
   exposed-modules:
-    Gen.AST
-    Gen.AST.Cofree
-    Gen.AST.Data
-    Gen.AST.Data.Field
-    Gen.AST.Data.Instance
-    Gen.AST.Data.Syntax
-    Gen.AST.Override
-    Gen.AST.Prefix
-    Gen.AST.Subst
     Gen.Import
     Gen.IO
     Gen.JSON
     Gen.Prelude
     Gen.Protocol
+    Gen.Source.Data
+    Gen.Source.Decl
+    Gen.Source.Exts
     Gen.Text
     Gen.TH
+    Gen.Transform
+    Gen.Transform.Cofree
+    Gen.Transform.Override
+    Gen.Transform.Prefix
+    Gen.Transform.Substitute
     Gen.Tree
     Gen.Types
     Gen.Types.Ann
     Gen.Types.Config
     Gen.Types.Data
+    Gen.Types.Field
     Gen.Types.Help
     Gen.Types.Id
+    Gen.Types.Instance
     Gen.Types.Map
     Gen.Types.Notation
     Gen.Types.NS

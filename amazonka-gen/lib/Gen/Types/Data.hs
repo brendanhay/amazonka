@@ -76,7 +76,7 @@ data Prod = Prod'
   }
   deriving stock (Eq, Show)
 
-prodToJSON :: ToJSON a => Solved -> Prod -> InsOrdHashMap Text a -> [Pair]
+prodToJSON :: Solved -> Prod -> [Rendered] -> [Pair]
 prodToJSON s Prod' {..} is =
   [ "type" .= Text.pack "product",
     "name" .= _prodName,
@@ -113,7 +113,7 @@ data Sum = Sum'
   }
   deriving stock (Eq, Show)
 
-sumToJSON :: Solved -> Sum -> [Text] -> [Pair]
+sumToJSON :: Solved -> Sum -> [Rendered] -> [Pair]
 sumToJSON s Sum' {..} is =
   [ "type" .= Text.pack "sum",
     "name" .= _sumName,
@@ -145,9 +145,9 @@ instance ToJSON Gen where
 
 data SData
   = -- | A product type (record).
-    Prod !Solved Prod (InsOrdHashMap Text Rendered)
+    Prod !Solved Prod [Rendered]
   | -- | A nullary sum type.
-    Sum !Solved Sum [Text]
+    Sum !Solved Sum [Rendered]
   | -- | A function declaration.
     Fun Fun
   deriving stock (Eq, Show)

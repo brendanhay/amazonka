@@ -1,5 +1,5 @@
 -- |
--- Module      : Gen.AST.Data.Instance
+-- Module      : Gen.Types.Instance
 -- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,22 +8,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Gen.AST.Data.Instance where
+module Gen.Types.Instance where
 
 import qualified Control.Lens as Lens
 import qualified Control.Monad.Except as Except
 import qualified Data.Aeson as Aeson
 import qualified Data.List as List
-import Gen.AST.Data.Field
 import Gen.Prelude
-import Gen.Types
+import Gen.Types.Ann
+import Gen.Types.Field
+import Gen.Types.Help
+import Gen.Types.Id
+import Gen.Types.Service
+import Gen.Types.TypeOf
+import Gen.Types.URI
 
 data Inst
-  = FromXML [Field]
-  | FromJSON [Field]
-  | ToXML [Field]
-  | ToElement (Maybe Text) (Either Text Field)
+  = FromJSON [Field]
   | ToJSON [Field]
+  | FromXML [Field]
+  | ToXML [Field]
+  | -- Erased request instances
+    ToElement (Maybe Text) (Either Text Field)
   | ToHeaders [Either (Text, Text) Field]
   | ToQuery [Either (Text, Maybe Text) Field]
   | ToPath [Either Text Field]

@@ -1,5 +1,5 @@
 -- |
--- Module      : Gen.AST.Data
+-- Module      : Gen.Source.Data
 -- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,7 +8,7 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Gen.AST.Data
+module Gen.Source.Data
   ( serviceData,
     operationData,
     shapeData,
@@ -33,9 +33,9 @@ import qualified Data.Text.Encoding as Text.Encoding
 import qualified Data.Text.Lazy as Text.Lazy
 import qualified Data.Text.Lazy.Builder as Text.Builder
 import qualified Data.Text.Lazy.Builder.Int as Text.Builder.Int
-import Gen.AST.Data.Field
-import Gen.AST.Data.Instance
-import Gen.AST.Data.Syntax
+import Gen.AST.Source.Field
+import Gen.AST.Source.Instance
+import Gen.AST.Source.Syntax
 import Gen.Prelude
 import Gen.Types
 import qualified Language.Haskell.Exts as Exts
@@ -60,10 +60,7 @@ operationData cfg m o = do
 
   let cls = prettyPrint Block (requestD cfg m h (xr, xis, xs) (yr, ys))
       yis' = mempty
-      xis' =
-        maybe id (HashMap.insert "AWSPager") mpage
-          . HashMap.insert "AWSRequest" cls
-          $ prettyInstances p xn xis
+      xis' = prettyInstances p xn xis ++ [cls] ++ maybeToList mpage
 
   pure
     $! o
@@ -144,7 +141,7 @@ patternData ::
   Info ->
   InsOrdHashMap Id Text ->
   SData
-patternData p s i vs = Sum s mk (HashMap.keys instances)
+patternData p s i vs = Sum s mk instances
   where
     mk =
       Sum'
@@ -302,13 +299,10 @@ prodData m s st = (mk, fields)
 
     n = s ^. annId
 
-prettyInstances :: Protocol -> Id -> [Inst] -> InsOrdHashMap Text Text.Lazy.Text
+prettyInstances :: Protocol -> Id -> [Inst] -> [Text.Lazy.Text]
 prettyInstances protocol' name =
-  HashMap.fromList . mapMaybe pp
-  where
-    pp inst = do
-      decl <- instanceD protocol' name inst
-      pure (instToText inst, prettyPrint Block decl)
+  map (prettyPrint Block)
+    . instanceDecls protocol' name
 
 serviceData ::
   HasMetadata a Identity =>

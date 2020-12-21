@@ -1,6 +1,7 @@
 {-# LANGUAGE DefaultSignatures #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TupleSections #-}
 
@@ -19,6 +20,7 @@ module Network.AWS.Data.Headers
   )
 where
 
+import Data.Bifunctor (bimap)
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.CaseInsensitive as CI
 import Data.HashMap.Strict (HashMap)
@@ -28,63 +30,48 @@ import Network.AWS.Data.ByteString
 import Network.AWS.Data.Text
 import Network.HTTP.Types
 
-parseHeadersMap ::
-  FromText a =>
-  ByteString ->
-  ResponseHeaders ->
-  Either String (HashMap Text a)
-parseHeadersMap p =
-  fmap HashMap.fromList . traverse g . filter f
-  where
-    f = BS8.isPrefixOf p . CI.foldedCase . fst
-
-    g (k, v) =
-      (Text.decodeUtf8 . BS8.drop n $ CI.original k,)
-        <$> fromText (Text.decodeUtf8 v)
-
-    n = BS8.length p
-
 infixl 7 .#, .#?
 
 -- FIXME: This whole toText/fromText shit is just stupid.
+parseResponseHeader
+
 (.#) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
 hs .# k = hs .#? k >>= note
   where
-    note Nothing = Left (BS8.unpack $ "Unable to find header: " <> CI.original k)
-    note (Just x) = Right x
+    note = \case
+      Nothing -> Left (BS8.unpack $ "Unable to find header: " <> CI.original k)
+      Just x -> Right x
+
+parseResponseHeaderMaybe
 
 (.#?) :: FromText a => ResponseHeaders -> HeaderName -> Either String (Maybe a)
 hs .#? k =
   maybe
     (Right Nothing)
     (fmap Just . fromText . Text.decodeUtf8)
-    (k `lookup` hs)
+    (lookup k hs)
 
-infixr 7 =#
+parseResponseHeader
 
-(=#) :: ToHeader a => HeaderName -> a -> [Header]
-(=#) = toHeader
+insertRequestHeader :: HeaderName -> ByteString -> [Header] -> [Header]
+insertRequestHeader k v hs = (k, v) : filter ((/= k) . fst) hs
 
-hdr :: HeaderName -> ByteString -> [Header] -> [Header]
-hdr k v hs = (k, v) : filter ((/= k) . fst) hs
+-- class ToRequestHeaders a where
+--   toRequestHeaders :: HeaderName -> a -> [Header]
 
-class ToHeaders a where
-  toHeaders :: a -> [Header]
-  toHeaders = const mempty
+-- instance ToRequestHeader Text where
+--   toRequestHeaders k v = [(k, Text.encodeUtf8 v)]
 
-class ToHeader a where
-  toHeader :: HeaderName -> a -> [Header]
-  default toHeader :: ToText a => HeaderName -> a -> [Header]
-  toHeader k = toHeader k . toText
+-- instance ToHeader ByteString where
+--   toRequestHeaders k v = [(k, v)]
 
-instance ToHeader Text where
-  toHeader k v = [(k, Text.encodeUtf8 v)]
+-- instance ToByteString a => ToHeader (Maybe a) where
+--   toRequestHeaders k = maybe [] (toHeaders k . toBS)
 
-instance ToHeader ByteString where
-  toHeader k v = [(k, v)]
-
-instance ToText a => ToHeader (Maybe a) where
-  toHeader k = maybe [] (toHeader k . toText)
+-- instance (ToByteString k, ToByteString v) => ToHeader (HashMap k v) where
+--   toRequestHeaders prefix =
+--     map (bimap (mappend prefix . CI.mk . toBS) toBS)
+--       . HashMap.toList
 
 hHost :: HeaderName
 hHost = "Host"

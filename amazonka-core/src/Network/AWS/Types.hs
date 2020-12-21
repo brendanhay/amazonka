@@ -552,12 +552,12 @@ class AWSRequest a where
 
   request :: a -> Request a
   response ::
-    (MonadResource m, MonadThrow m) =>
+    Monad m =>
     Logger ->
     Service ->
     Proxy a -> -- For injectivity reasons.
     ClientResponse ->
-    m (Response a)
+    m (Either Error (Response a))
 
 -- | An access key ID.
 --

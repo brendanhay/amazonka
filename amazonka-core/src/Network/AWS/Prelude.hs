@@ -6,8 +6,7 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Prelude
-  ( module Network.AWS.Prelude,
-    module Export,
+  ( module Export,
   )
 where
 
@@ -48,12 +47,3 @@ import Network.HTTP.Types.Status as Export (Status (..))
 import Network.HTTP.Types.URI as Export (urlDecode, urlEncode)
 import Numeric.Natural as Export (Natural)
 import Prelude as Export
-
-infixl 7 .!@
-
-(.!@) :: Functor f => f (Maybe a) -> a -> f a
-f .!@ x = fromMaybe x <$> f
-
-may :: Applicative f => ([a] -> f b) -> [a] -> f (Maybe b)
-may _ [] = pure Nothing
-may f xs = Just <$> f xs

@@ -257,12 +257,12 @@ _Body = un (to toBody)
 
 toJSONBody :: ToJSON a => a -> RqBody
 toJSONBody = toBody . encode
-{-# INLINEABlE toJSONBody #-}
+{-# INLINEABLE toJSONBody #-}
 
 toXMLBody :: ToElement a => a -> RqBody
 toXMLBody = toBody . encodeXML
-{-# INLINEABlE toXMLBody #-}
+{-# INLINEABLE toXMLBody #-}
 
 toQueryBody :: QueryString -> RqBody
 toQueryBody = toBody . toBS
-{-# INLINEABlE toQueryBody #-}
+{-# INLINEABLE toQueryBody #-}

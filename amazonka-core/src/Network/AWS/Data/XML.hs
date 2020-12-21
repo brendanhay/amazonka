@@ -38,6 +38,16 @@ import Text.XML
 import qualified Text.XML.Stream.Render as Stream
 import Text.XML.Unresolved (toEvents)
 
+infixl 7 .!@
+
+(.!@) :: Functor f => f (Maybe a) -> a -> f a
+f .!@ x = fromMaybe x <$> f
+
+unlessEmpty :: Applicative f => ([a] -> f b) -> [a] -> f (Maybe b)
+unlessEmpty f = \case
+  [] -> pure Nothing
+  xs -> Just <$> f xs
+
 infixl 7 .@, .@?
 
 (.@) :: FromXML a => [Node] -> Text -> Either String a
@@ -153,13 +163,17 @@ maybeElement x =
       | null ns -> Nothing
       | otherwise -> Just e
 
+typeXML' = DList XMLF
+
+data XMLF = XAttr Name Text | XNode Node
+
 -- | Provides a way to make the operators for ToXML instance
 -- declaration be consistent WRT to single nodes or lists of nodes.
 data XML
   = XNull
   | XAttr Name Text
   | XOne Node
-  | XMany [(Name, Text)] [Node]
+  | XMany (HashMap Name Text) (DList Node)
   deriving (Show)
 
 instance Semigroup XML where

@@ -79,3 +79,8 @@ instance ToByteString StdMethod where
 
 instance ToByteString UTCTime where
   toBS = BS8.pack . show
+
+instance ToByteString Bool where
+  toBS = \case
+    True -> "true"
+    False -> "false"

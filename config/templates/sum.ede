@@ -7,11 +7,11 @@
 --
 module {{ moduleName }}
   ( {{ shape.name }}
-    ( {{ shape.constructor }}
+    ( {{ shape.name }}'
   {% for pattern in shape.patterns %}
     , {{ pattern.value.name }}
   {% endfor %}
-    , from{{ shape.name }}
+    , {{ shape.constructor }}
     )
   ) where
 

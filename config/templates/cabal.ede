@@ -60,6 +60,7 @@ common base
     ScopedTypeVariables 
     StandaloneDeriving
     StrictData
+    TupleSections
     TypeApplications
     TypeFamilies
 
@@ -67,7 +68,7 @@ common base
 
 library
     import:         base
-    hs-source-dirs: src gen
+    hs-source-dirs: gen{% if !(typeModules | empty) %} src{% endif %}
 
     exposed-modules:
           Network.AWS.{{ serviceAbbrev }}

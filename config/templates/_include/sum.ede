@@ -5,11 +5,11 @@
 
 {% for pattern in shape.patterns %}
 pattern {{ pattern.value.name }} :: {{ shape.name }}
-pattern {{ pattern.value.name }} = {{ shape.constructor }} "{{ pattern.value.text }}"
+pattern {{ pattern.value.name }} = {{ shape.name }}' "{{ pattern.value.text }}"
 
 {% endfor %}
 {-# COMPLETE {% for pattern in shape.patterns %}
   {{ pattern.value.name }},
 {% endfor %}
-  {{ shape.constructor }}
+  {{ shape.name }}'
   #-}

@@ -1,3 +1,4 @@
 {
-    "libraryName": "amazonka-mediaconvert"
+    "libraryName": "amazonka-mediaconvert",
+    "newtypeStringLiterals": false
 }

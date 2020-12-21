@@ -1,5 +1,5 @@
 -- |
--- Module      : Gen.Source.Data
+-- Module      : Gen.Syntax.Data
 -- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,7 +8,7 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Gen.Source.Data
+module Gen.Syntax.Data
   ( serviceData,
     operationData,
     shapeData,
@@ -33,18 +33,20 @@ import qualified Data.Text.Encoding as Text.Encoding
 import qualified Data.Text.Lazy as Text.Lazy
 import qualified Data.Text.Lazy.Builder as Text.Builder
 import qualified Data.Text.Lazy.Builder.Int as Text.Builder.Int
-import Gen.AST.Source.Field
-import Gen.AST.Source.Instance
-import Gen.AST.Source.Syntax
 import Gen.Prelude
+import qualified Gen.Syntax.Decl as Decl
+import qualified Gen.Syntax.Exts as Exts
+import qualified Gen.Text
 import Gen.Types
-import qualified Language.Haskell.Exts as Exts
+import Gen.Types.Field
+import Gen.Types.Instance
+import qualified Language.Haskell.Exts as Haskell.Exts
 import Language.Haskell.Exts.Pretty (Pretty)
 
 operationData ::
-  HasMetadata a Identity =>
+  HasMetadata meta Identity =>
   Config ->
-  a ->
+  meta ->
   Operation Identity Ref (Pager Id) ->
   Either String (Operation Identity SData (Pager Id))
 operationData cfg m o = do
@@ -56,9 +58,9 @@ operationData cfg m o = do
 
   xis <- requestInsts m (_opName o) h xr xs
 
-  mpage <- fmap (prettyPrint Block . pagerD xn) <$> pagerFields m o
+  mpage <- fmap (Exts.renderBlock . Decl.classAWSPagerD xn) <$> pagerFields m o
 
-  let cls = prettyPrint Block (requestD cfg m h (xr, xis, xs) (yr, ys))
+  let cls = Exts.renderBlock (Decl.classAWSRequestD cfg m h (xr, xis, xs) (yr, ys))
       yis' = mempty
       xis' = prettyInstances p xn xis ++ [cls] ++ maybeToList mpage
 
@@ -81,8 +83,8 @@ operationData cfg m o = do
     yn = identifier yr
 
 shapeData ::
-  HasMetadata a Identity =>
-  a ->
+  HasMetadata meta Identity =>
+  meta ->
   Shape Solved ->
   Maybe SData
 shapeData m (a :< s) =
@@ -103,8 +105,8 @@ shapeData m (a :< s) =
     r = a ^. relMode
 
 errorData ::
-  HasMetadata a Identity =>
-  a ->
+  HasMetadata meta Identity =>
+  meta ->
   Solved ->
   Info ->
   SData
@@ -114,8 +116,8 @@ errorData m s i = Fun mk
       Fun'
         { _funName = p,
           _funDoc = h,
-          _funSig = prettyPrint Inline (errorS p),
-          _funDecl = prettyPrint Block (errorD m p status code),
+          _funSig = Exts.renderInline (Decl.sigErrorD p),
+          _funDecl = Exts.renderBlock (Decl.funErrorD m p status code),
           _funPragmas = [Text.Lazy.fromStrict deprecated]
         }
 
@@ -141,180 +143,154 @@ patternData ::
   Info ->
   InsOrdHashMap Id Text ->
   SData
-patternData p s i vs = Sum s mk instances
+patternData protocol' solved info branches =
+  Sum solved newSum instances
   where
-    mk =
+    newSum =
       Sum'
-        { _sumName = typeId name,
-          _sumDoc = i ^. infoDocumentation,
-          _sumDecl = prettyPrint Block decl,
-          _sumCtor = constructor,
-          _sumPatterns = patterns
+        { _sumName =
+            typeId name,
+          _sumDoc =
+            info ^. infoDocumentation,
+          _sumCtor =
+            constructor,
+          _sumDecl =
+            Exts.renderBlock
+              . Decl.patternD name constructor
+              . Decl.derivingD True
+              $ derivingOf solved,
+          _sumPatterns =
+            flip map (HashMap.toList branches) $ \(k, v) ->
+              Pattern'
+                { _patName = branchId prefix k,
+                  _patText = v
+                }
         }
 
-    decl =
-      dataD
-        name
-        True
-        [ conD $
-            (Exts.RecDecl ())
-              (ident constructor)
-              [ Exts.FieldDecl () [ident getter] (tycon "Core.Text")
-              ]
-        ]
-        (derivingOf s)
+    instances =
+      prettyInstances protocol' name $
+        shapeInsts protocol' (solved ^. relMode) []
 
-    name = s ^. annId
+    constructor =
+      "from" <> typeId name
 
-    -- Disambiguate the constructor name to avoid clashes with type names.
-    constructor = typeId name <> "'"
-    getter = "from" <> typeId name
-
-    patterns =
-      flip map (HashMap.toList vs) $ \(k, v) ->
-        Pattern'
-          { _patName = branchId (s ^. annPrefix) k,
-            _patText = v
-          }
-
-    instances = prettyInstances p name (shapeInsts p (s ^. relMode) [])
+    prefix = solved ^. annPrefix
+    name = solved ^. annId
 
 prodData ::
-  HasMetadata a Identity =>
-  a ->
+  HasMetadata meta Identity =>
+  meta ->
   Solved ->
   StructF (Shape Solved) ->
   (Prod, [Field])
-prodData m s st = (mk, fields)
+prodData meta solved struct =
+  (newProd, fields)
   where
-    mk =
+    newProd =
       Prod'
-        { _prodName = typeId n,
-          _prodDoc = st ^. infoDocumentation,
-          _prodDecl = prettyPrint Inline decl,
-          _prodDeriving = derivingClauses,
-          _prodCtor = mkCtor,
-          _prodLenses = map mkLens fields,
-          _prodAccessors = map mkAccessor fieldDecls,
-          _prodDeps = dependencies
+        { _prodName =
+            typeId name,
+          _prodDoc =
+            struct ^. infoDocumentation,
+          _prodDecl =
+            Exts.renderInline (Decl.recordD name isNewtype),
+          _prodDeriving =
+            map Exts.renderInline $
+              Decl.derivingD isNewtype (derivingOf solved),
+          _prodCtor =
+            Fun'
+              { _funName =
+                  smartCtorId name,
+                _funDoc =
+                  Help $
+                    "Creates a '"
+                      <> typeId name
+                      <> "' value with any optional fields omitted.",
+                _funSig =
+                  addParamComments fields $
+                    Exts.renderInline (Decl.sigSmartCtorD meta name fields),
+                _funDecl =
+                  Exts.renderBlock (Decl.funSmartCtorD name fields),
+                _funPragmas =
+                  []
+              },
+          _prodAccessors =
+            flip map (Decl.fieldsD meta name fields) $ \(label, decl, help) ->
+              Accessor'
+                { _accessorName = label,
+                  _accessorDecl = Exts.renderInline decl,
+                  _accessorDoc = help
+                },
+          _prodLenses =
+            flip map fields $ \field ->
+              Fun'
+                { _funName = fieldLens field,
+                  _funDoc =
+                    fieldHelp field
+                      <> "\n--\n-- /Note:/ Consider using '"
+                      <> Help (fieldAccessor field)
+                      <> "' with <https://hackage.haskell.org/package/generic-lens generic-lens> or "
+                      <> "<https://hackage.haskell.org/package/generic-optics generic-optics> instead.",
+                  _funSig = Exts.renderInline (Decl.sigLensD meta name field),
+                  _funDecl = Exts.renderInline (Decl.funLensD meta name field),
+                  _funPragmas = [Text.Lazy.fromStrict (lensDeprecated field)]
+                },
+          _prodDeps =
+            foldMap (typeNames stripOverrideType) fields
         }
 
-    decl =
-      dataD
-        n
-        (length fields == 1)
-        [conD (Exts.ConDecl () (ident constructor) [])]
-        []
-
-    constructor = typeId n <> "'"
-
-    (name, fieldDecls) = recordD m n fields
-
-    derivingClauses =
-      map (prettyPrint Inline) $
-        derivingD (length fields == 1) (derivingOf s)
-
-    mkAccessor (label, decl, help) =
-      Accessor'
-        { _accessorName = label,
-          _accessorDecl = prettyPrint Inline decl,
-          _accessorDoc = help
-        }
-
-    fields :: [Field]
-    fields = mkFields m s st
-
-    mkLens :: Field -> Fun
-    mkLens f =
-      Fun'
-        { _funName = fieldLens f,
-          _funDoc =
-            fieldHelp f
-              <> "\n--\n-- /Note:/ Consider using '"
-              <> Help (fieldAccessor f)
-              <> "' with <https://hackage.haskell.org/package/generic-lens generic-lens> or "
-              <> "<https://hackage.haskell.org/package/generic-optics generic-optics> instead.",
-          _funSig = prettyPrint Inline (lensS m n f),
-          _funDecl = prettyPrint Inline (lensD m n f),
-          _funPragmas = [Text.Lazy.fromStrict (lensDeprecated f)]
-        }
-
-    mkCtor :: Fun
-    mkCtor =
-      Fun'
-        { _funName = smartCtorId n,
-          _funDoc = mkHelp,
-          _funSig = prettyPrint Inline (ctorS m n fields) & addParamComments fields,
-          _funDecl = prettyPrint Block (ctorD n fields),
-          _funPragmas = []
-        }
-
-    mkHelp :: Help
-    mkHelp =
-      Help ("Creates a '" <> typeId n <> "' value with any optional fields omitted.")
-
-    -- FIXME: dirty hack to render smart ctor parameter haddock comments.
-    addParamComments :: [Field] -> Rendered -> Rendered
-    addParamComments fs =
-      Text.Lazy.replace " :: " "\n    :: "
-        . Text.Lazy.intercalate "\n    -> "
-        . zipWith rel ps
-        . map Text.Lazy.strip
-        . Text.Lazy.splitOn "->"
+    -- FIXME: this is quite probably unecessary? Seems like it exists as
+    -- hack for overrides with verbatim type application.
+    stripOverrideType x
+      | stripped == typeId name = Nothing
+      | otherwise = Just x
       where
-        rel Nothing t = t
-        rel (Just p) t = t <> " -- ^ '" <> escape (fieldAccessor p) <> "'"
+        stripped =
+          Gen.Text.stripPrefix "(Maybe " (Gen.Text.stripSuffix ")" x)
 
-        escape (Text.Lazy.fromStrict -> text) =
-          flip Text.Lazy.concatMap text $ \case
-            '\'' -> "\\'"
-            c -> Text.Lazy.singleton c
+    isNewtype = length fields == 1
 
-        ps = map Just (filter fieldIsParam fs) ++ repeat Nothing
+    fields = getStructFields meta solved struct
 
-    dependencies = foldMap go fields
-      where
-        go :: TypeOf a => a -> Set.Set Text
-        go f =
-          case (typeOf f) of
-            TType x _ -> tTypeDep x
-            TLit _ -> Set.empty
-            TNatural -> Set.empty
-            TStream -> Set.empty
-            TMaybe x -> go x
-            TSensitive x -> go x
-            TList x -> go x
-            TList1 x -> go x
-            TMap k v -> go k <> go v
+    name = solved ^. annId
 
-        tTypeDep :: Text -> Set.Set Text
-        tTypeDep x =
-          if stripped /= typeId n
-            then Set.singleton stripped
-            else Set.empty
-          where
-            stripped =
-              fromMaybe x $
-                Text.stripPrefix "(Maybe " =<< Text.stripSuffix ")" x
+-- FIXME: dirty hack to render interleaved smart ctor parameter comments.
+addParamComments :: [Field] -> Rendered -> Rendered
+addParamComments fields =
+  Text.Lazy.replace " :: " "\n    :: "
+    . Text.Lazy.intercalate "\n    -> "
+    . zipWith link params
+    . map Text.Lazy.strip
+    . Text.Lazy.splitOn "->"
+  where
+    link Nothing text = text
+    link (Just x) text = text <> " -- ^ '" <> escape (fieldAccessor x) <> "'"
 
-    n = s ^. annId
+    escape (Text.Lazy.fromStrict -> text) =
+      flip Text.Lazy.concatMap text $ \case
+        '\'' -> "\\'"
+        char -> Text.Lazy.singleton char
+
+    params =
+      map Just (filter fieldIsParam fields)
+        ++ repeat Nothing
 
 prettyInstances :: Protocol -> Id -> [Inst] -> [Text.Lazy.Text]
 prettyInstances protocol' name =
-  map (prettyPrint Block)
-    . instanceDecls protocol' name
+  map Exts.renderBlock
+    . Decl.instancesD protocol' name
 
 serviceData ::
-  HasMetadata a Identity =>
-  a ->
+  HasMetadata meta Identity =>
+  meta ->
   Retry ->
   Fun
 serviceData m r =
   Fun'
     { _funName = m ^. serviceConfig,
       _funDoc = Help help,
-      _funSig = prettyPrint Inline (serviceS m),
-      _funDecl = prettyPrint Block (serviceD m r),
+      _funSig = Exts.renderInline (Decl.sigServiceD m),
+      _funDecl = Exts.renderBlock (Decl.funServiceD m r),
       _funPragmas = []
     }
   where
@@ -326,8 +302,8 @@ serviceData m r =
         <> " configuration."
 
 waiterData ::
-  HasMetadata a Identity =>
-  a ->
+  HasMetadata meta Identity =>
+  meta ->
   InsOrdHashMap Id (Operation Identity Ref b) ->
   Id ->
   Waiter Id ->
@@ -340,8 +316,8 @@ waiterData m os n w = do
         Fun'
           { _funName = smartCtorId n,
             _funDoc = Help help,
-            _funSig = prettyPrint Inline (waiterS n wf),
-            _funDecl = prettyPrint Block (waiterD n wf),
+            _funSig = Exts.renderInline (Decl.sigWaiterD n wf),
+            _funDecl = Exts.renderBlock (Decl.funWaiterD n wf),
             _funPragmas = []
           }
 
@@ -370,8 +346,8 @@ waiterData m os n w = do
     key = _waitOperation w
 
 waiterFields ::
-  HasMetadata a Identity =>
-  a ->
+  HasMetadata meta Identity =>
+  meta ->
   Operation Identity Ref b ->
   Waiter Id ->
   Either String (Waiter Field)
@@ -385,8 +361,8 @@ waiterFields m o = Lens.traverseOf (waitAcceptors . Lens.each) go
       pure $! x & acceptArgument .~ n
 
 pagerFields ::
-  HasMetadata a Identity =>
-  a ->
+  HasMetadata meta Identity =>
+  meta ->
   Operation Identity Ref (Pager Id) ->
   Either String (Maybe (Pager Field))
 pagerFields m o = traverse go (o ^. opPager)
@@ -407,12 +383,12 @@ pagerFields m o = traverse go (o ^. opPager)
         <*> notation m out y
 
 notation ::
-  HasMetadata a Identity =>
-  a ->
+  HasMetadata meta Identity =>
+  meta ->
   Shape Solved ->
   Notation Id ->
   Either String (Notation Field)
-notation m nid = go nid
+notation meta start nid = go start nid
   where
     go :: Shape Solved -> Notation Id -> Either String (Notation Field)
     go s = \case
@@ -430,13 +406,38 @@ notation m nid = go nid
       Each n -> Each <$> field' n s
       Last n -> Last <$> field' n s
 
+-- "Certificate.DomainValidationOptions[].ValidationStatus",
+-- Struct/DescribeCertificateResponse has member Struct/Certificate
+-- Struct/CertificateDetail has member List/DomainValidationOptions 
+-- List/DomainValidationOptions has entry Struct/DomainValidation
+-- Struct/DomainValidation has member ValidationStatus
+
     field' :: Id -> Shape Solved -> Either String Field
     field' n = \case
-      a :< Struct st ->
-        let fields = mkFields m a st
-         in maybe (Left (missingErr n (identifier a) fields)) Right $
-              List.find ((n ==) . _fieldId) fields
-      _ -> Except.throwError (descendErr n)
+      a :< Struct st -> do
+        let fields = getStructFields meta a st
+
+        case List.find ((n ==) . _fieldId) fields of
+          Nothing ->
+            Left $ "Unable to find field "
+                ++ show n
+                ++ " in members of "
+                ++ show (identifier a)
+                ++ " "
+                ++ show (map _fieldId fields)
+          Just ok ->
+            pure ok
+      --
+      other -> 
+        Left $ "Unable to find field "
+            ++ show n
+            ++ " in non-struct reference, "
+            ++ show nid
+            ++ "\n\n"
+            ++ show  start
+            ++ "\n\n"
+            ++ show other
+
 
     shape :: Key Field -> Shape Solved
     shape =
@@ -450,33 +451,3 @@ notation m nid = go nid
       _ :< List x -> x ^. listItem . refAnn
       _ :< Map x -> x ^. mapValue . refAnn
       x -> x
-
-    missingErr n parent fields =
-      "Unable to find "
-        ++ show n
-        ++ " in members of "
-        ++ show parent
-        ++ " "
-        ++ show (map _fieldId fields)
-
-    descendErr k =
-      "Unable to descend into nested reference "
-        ++ show k
-
-data Layout
-  = Block
-  | Inline
-  deriving stock (Eq)
-
-prettyPrint :: Pretty a => Layout -> a -> Rendered
-prettyPrint layout d =
-  Text.Lazy.dropWhile Char.isSpace . Text.Lazy.pack $
-    Exts.prettyPrintWithMode mode d
-  where
-    mode
-      | layout == Block = Exts.defaultMode
-      | otherwise =
-        Exts.defaultMode
-          { Exts.layout = Exts.PPInLine,
-            Exts.spacing = False
-          }

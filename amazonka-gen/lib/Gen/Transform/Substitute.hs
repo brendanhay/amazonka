@@ -1,7 +1,7 @@
 {-# LANGUAGE TemplateHaskell #-}
 
 -- |
--- Module      : Gen.AST.Subst
+-- Module      : Gen.Transform.Substitute
 -- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -10,7 +10,7 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Gen.AST.Substitute
+module Gen.Transform.Substitute
   ( substitute,
     emptyStruct,
     emptyInfo,
@@ -24,8 +24,8 @@ import qualified Control.Monad.Except as Except
 import qualified Control.Monad.State.Strict as State
 import qualified Data.HashMap.Strict.InsOrd as HashMap
 import qualified Data.List as List
-import Gen.AST.Override
 import Gen.Prelude
+import Gen.Transform.Override
 import Gen.Types
 
 data Env a = Env
@@ -46,7 +46,9 @@ substitute ::
   Service Maybe (RefF ()) (Shape Related) a ->
   Either String (Service Identity (RefF ()) (Shape Related) a)
 substitute svc@Service {..} = do
-  (os, e) <- State.runStateT (traverse operation _operations) (Env mempty _shapes)
+  (os, e) <-
+    State.runStateT (traverse operation _operations) (Env mempty _shapes)
+
   pure $! override (e ^. overrides) $
     svc
       { _metadata' = meta _metadata',
@@ -70,6 +72,7 @@ substitute svc@Service {..} = do
     operation o@Operation {..} = do
       inp <- subst Input (name Input _opName) _opInput
       out <- subst Output (name Output _opName) _opOutput
+
       pure
         $! o
           { _opDocumentation = _opDocumentation .! "-- | Undocumented operation.",
@@ -123,7 +126,10 @@ substitute svc@Service {..} = do
             save n ((x & annId .~ n) :< s)
             -- Update the Ref to point to the new wrapper.
             pure (r & refShape .~ n)
-          | isShared x -> pure r
+          --
+          | isShared x ->
+            pure r
+          --
           | otherwise -> do
             -- Ref exists, and is not referred to by any other Shape.
             -- Insert override to rename the Ref/Shape to the desired name.
@@ -131,8 +137,17 @@ substitute svc@Service {..} = do
             --
             -- Also adds a required status code field to any
             -- non-shared response.
-            save k (Related k (_annRelation x) :< addStatus d s)
+
+            -- save n (Related n (_annRelation x) :< addStatus d s)
+            -- rename k n
+
+            -- FIXME: When the input shape already exists in the shape map we
+            -- get the UpdateReservation/UpdateReservationRequest problem.
+
+            save n (Related n (_annRelation x) :< addStatus d s)
+
             rename k n
+
             pure r
 
 addStatus :: Direction -> ShapeF (Shape Related) -> ShapeF (Shape Related)
@@ -161,7 +176,8 @@ save :: Id -> Shape a -> MemoS a ()
 save n s = memo %= HashMap.insert n s
 
 rename :: Id -> Id -> MemoS a ()
-rename x y = overrides %= HashMap.insert x (defaultOverride & renamedTo ?~ y)
+rename x y =
+  overrides %= HashMap.insert x (defaultOverride & renamedTo ?~ y)
 
 safe :: Show a => Id -> InsOrdHashMap Id a -> Either String a
 safe n ss =

@@ -10,6 +10,7 @@
 -- Portability : non-portable (GHC extensions)
 module Gen.Types.TypeOf
   ( TypeOf (..),
+    typeNames,
     derivingOf,
     derivable,
     pointerTo,
@@ -24,7 +25,8 @@ import qualified Control.Comonad.Cofree as Comonad.Cofree
 import qualified Control.Lens as Lens
 import qualified Data.Foldable as Foldable
 import qualified Data.List as List
-import qualified Data.Map as Map
+import qualified Data.Map.Strict as Map
+import qualified Data.Set as Set
 import Gen.Prelude
 import Gen.Types.Ann
 import Gen.Types.Id
@@ -89,6 +91,20 @@ pointerTo n = \case
   _ -> t n
   where
     t x = TType (typeId x) derivable
+
+typeNames :: TypeOf a => (Text -> Maybe Text) -> a -> Set.Set Text
+typeNames match = go . typeOf
+  where
+    go = \case
+      TType x _ -> maybe Set.empty Set.singleton (match x)
+      TLit _ -> Set.empty
+      TNatural -> Set.empty
+      TStream -> Set.empty
+      TMaybe x -> go x
+      TSensitive x -> go x
+      TList x -> go x
+      TList1 x -> go x
+      TMap k v -> go k <> go v
 
 derivingOf :: TypeOf a => a -> [Derive]
 derivingOf = uniq . typ . typeOf

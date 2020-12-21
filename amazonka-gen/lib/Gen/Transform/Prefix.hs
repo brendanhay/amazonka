@@ -1,7 +1,7 @@
 {-# LANGUAGE TemplateHaskell #-}
 
 -- |
--- Module      : Gen.AST.Prefix
+-- Module      : Gen.Transform.Prefix
 -- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -10,7 +10,7 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Gen.AST.Prefix
+module Gen.Transform.Prefix
   ( prefixes,
   )
 where
@@ -27,9 +27,9 @@ import qualified Data.Hashable as Hashable
 import qualified Data.Maybe as Maybe
 import qualified Data.Text as Text
 import qualified Data.Text.Manipulate as Manipulate
-import Gen.AST.Cofree (annotate)
 import Gen.Prelude
 import Gen.Text
+import Gen.Transform.Cofree (annotate)
 import Gen.Types
 
 type Seen = InsOrdHashMap Text (HashSet Text)

@@ -1,5 +1,5 @@
 -- |
--- Module      : Gen.AST
+-- Module      : Gen.Transform
 -- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,7 +8,7 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Gen.AST where
+module Gen.Transform where
 
 import Control.Arrow ((&&&))
 import qualified Control.Lens as Lens
@@ -19,14 +19,15 @@ import qualified Data.Graph as Graph
 import qualified Data.HashMap.Strict.InsOrd as HashMap
 import qualified Data.HashSet as HashSet
 import qualified Data.Maybe as Maybe
+import qualified Data.Text as Text
 import qualified Data.Tree as Tree
-import Debug.Trace
-import Gen.AST.Cofree
-import Gen.AST.Data
-import Gen.AST.Override
-import Gen.AST.Prefix
-import Gen.AST.Subst
+import GHC.Exts (toList)
 import Gen.Prelude
+import Gen.Syntax.Data
+import Gen.Transform.Cofree
+import Gen.Transform.Override
+import Gen.Transform.Prefix
+import Gen.Transform.Substitute
 import Gen.Types
 
 -- FIXME: Relations need to be updated by the solving step.
@@ -37,53 +38,20 @@ rewrite ::
   Service Maybe (RefF ()) (ShapeF ()) (Waiter Id) ->
   Either String Library
 rewrite versions cfg svc = do
-  let expanded = svc & shapes %~ replaceStrings
+  let expanded =
+        svc & shapes
+          %~ if _newtypeStringLiterals cfg
+            then newtypeStrings
+            else id
 
   rewritten <- rewriteService cfg (deprecateOperations expanded)
-  rendered <- renderShapes cfg (ignoreUnusedShapes rewritten)
+  rendered <- renderShapes cfg rewritten
 
   pure $! Library versions cfg rendered $
     serviceData (rendered ^. metadata) (rendered ^. retry)
 
 deprecateOperations :: Service f a b c -> Service f a b c
 deprecateOperations = operations %~ HashMap.filter (not . Lens.view opDeprecated)
-
-ignoreUnusedShapes ::
-  Service Identity (RefF ()) (Shape Related) c ->
-  Service Identity (RefF ()) (Shape Related) c
-ignoreUnusedShapes svc =
-  svc & shapes %~ HashMap.filterWithKey (\k _v -> HashSet.member k reachableSet)
-  where
-    shapeIds :: InsOrdHashMap Id [Id]
-    shapeIds =
-      HashMap.map (map identifier . Foldable.toList) (_shapes svc)
-
-    ( graph :: Graph,
-      nodeFromVertex :: Vertex -> ((), Id, [Id]),
-      vertexFromId :: Id -> Maybe Vertex
-      ) =
-        Graph.graphFromEdges
-          . map (\(k, vs) -> ((), k, vs))
-          $ HashMap.toList shapeIds
-
-    requestResponseIds :: [Id]
-    requestResponseIds =
-      flip concatMap (HashMap.elems (_operations svc)) $ \op ->
-        [ runIdentity (_refShape <$> _opInput op :: Identity Id),
-          runIdentity (_refShape <$> _opOutput op :: Identity Id)
-        ]
-
-    rootVertices :: [Vertex]
-    rootVertices =
-      Maybe.mapMaybe vertexFromId requestResponseIds
-
-    reachableVertices :: [Vertex]
-    reachableVertices =
-      concatMap Tree.flatten (Graph.dfs graph rootVertices)
-
-    reachableSet :: HashSet Id
-    reachableSet =
-      HashSet.fromList (map (Lens.view Lens._2 . nodeFromVertex) reachableVertices)
 
 rewriteService ::
   Config ->
@@ -121,7 +89,7 @@ renderShapes cfg svc = do
       >>= separateOperations (svc ^. operations)
 
   -- Prune anything that is an orphan, or not an exception
-  let prune = HashMap.filter $ \s -> not (isOrphan s) || s ^. infoException
+  let prune = HashMap.filter (\s -> not (isOrphan s) || s ^. infoException)
 
   -- Convert shape ASTs into a rendered Haskell AST declaration,
   xs <- traverse (operationData cfg svc) x
@@ -214,50 +182,62 @@ solveShapes cfg ss =
 type MemoS a = StateT (InsOrdHashMap Id a) (Either String)
 
 -- | Create a newtype wrapper for all top-level string literals and struct fields.
-replaceStrings ::
+newtypeStrings ::
   InsOrdHashMap Id (ShapeF ()) ->
   InsOrdHashMap Id (ShapeF ())
-replaceStrings shapes =
+newtypeStrings shapes =
   State.execState (HashMap.traverseWithKey replaceShape shapes) shapes
   where
-    replaceShape name = \case
+    replaceShape key = \case
       Struct struct -> do
         members' <- HashMap.traverseWithKey replaceField (_members struct)
+
         State.modify' $
-          HashMap.insert name (Struct (struct & members .~ members'))
+          HashMap.insert key (Struct (struct & members .~ members'))
       --
       Lit info Text ->
-        when (name /= stringName) $
+        unless (isSimpleName key) $
           State.modify' $
-            HashMap.insert name (emptyEnum emptyInfo)
+            HashMap.insert key (emptyEnum emptyInfo)
       --
       _other ->
         pure ()
 
     replaceField label ref
-      | _refShape ref /= stringName = pure ref
+      | isSimpleName (_refShape ref) = pure ref
       | otherwise = do
-        let name = mkId (typeId label)
+        let key = _refShape ref
+            new = mkId (typeId label)
 
-        State.gets (HashMap.lookup name) >>= \case
-          Nothing -> do
-            State.modify' $
-              HashMap.insert name (emptyEnum emptyInfo)
-
-            pure ref {_refShape = name}
-          --
-          Just (Enum info values)
-            | info == emptyInfo && HashMap.null values ->
-              pure ref {_refShape = name}
-          --
+        State.gets (HashMap.lookup key) >>= \case
+          -- We're pointing at something we know how to replace.
           Just (Lit info Text)
-            | info == emptyInfo ->
-              pure ref {_refShape = name}
-          Just _ ->
+            | not (isSimpleName key) ->
+              State.gets (HashMap.lookup new) >>= \case
+                -- Never seen this identifier before in my life.
+                Nothing -> do
+                  State.modify' $
+                    HashMap.insert new (emptyEnum emptyInfo)
+
+                  pure ref {_refShape = new}
+                -- An empty pattern (newtype) we've inserted previously.
+                Just (Enum info values)
+                  | info == emptyInfo && HashMap.null values ->
+                    pure ref {_refShape = new}
+                -- A raw string literal that's safe to replace.
+                Just (Lit info Text)
+                  | info == emptyInfo ->
+                    pure ref {_refShape = new}
+                -- Lost, confused, and don't know how to newtype this, continue.
+                Just _ ->
+                  pure ref
+          -- Otherwise, just return the unmodified (un-newtyped) ref.
+          _other ->
             pure ref
 
-    stringName =
-      UnsafeId "String" "String"
+    isSimpleName (memberId -> name) =
+      Text.toLower name == "String"
+        || Text.isPrefixOf "__" name
 
     emptyEnum =
       flip Enum mempty
@@ -282,14 +262,15 @@ replaceStrings shapes =
 -- Returns either an error result or the operations paired with
 -- the respective data types.
 separateOperations ::
-  (Show a, HasRelation a) =>
+  (Show a, HasRelation a, Show b) =>
   InsOrdHashMap Id (Operation Identity (RefF b) c) ->
   InsOrdHashMap Id a ->
   Either String (InsOrdHashMap Id (Operation Identity (RefF a) c), InsOrdHashMap Id a)
-separateOperations os = State.runStateT (traverse go os)
+separateOperations os =
+  State.runStateT (traverse go os)
   where
     go ::
-      (HasRelation b) =>
+      (HasRelation b, Show a, Show b) =>
       Operation Identity (RefF a) c ->
       MemoS b (Operation Identity (RefF b) c)
     go o = do

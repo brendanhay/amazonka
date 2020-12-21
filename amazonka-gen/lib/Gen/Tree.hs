@@ -68,11 +68,6 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
       traverse
         sequenceA
         [ dir
-            "src"
-            -- Supress cabal warnings about directories listed that don't exist.
-            [ touch ".gitkeep" blankTemplate mempty
-            ],
-          dir
             "gen"
             [ dir
                 "Network"

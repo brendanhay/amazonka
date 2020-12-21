@@ -7,8 +7,12 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Gen.Source.Exts
-  ( -- * Syntax
+module Gen.Syntax.Exts
+  ( -- * Pretty printing
+    renderBlock,
+    renderInline,
+
+    -- * Syntax
     Name,
     QName,
     Type,
@@ -47,17 +51,27 @@ module Gen.Source.Exts
     varP,
 
     -- * Declarations
-        dataD,
+    dataD,
     derivingD,
-    qualConD,
+    recordD,
+    conD,
     fieldD,
     typeSigD,
     funBindD,
-    matchNullaryD,
-    matchWildcardD,
+    Exts.noBinds,
     Exts.sfun,
     Exts.patBindWhere,
-    Exts.noBinds,
+
+    -- * Matches
+    varsM,
+    nullM,
+    wildM,
+
+    -- * Guards
+    guardedRhs,
+    unguardedRhs,
+    otherwiseRhs,
+    guardRhs,
 
     -- * Instances
     instanceD,
@@ -90,8 +104,10 @@ module Gen.Source.Exts
     constE,
     applicativeE,
     fmapE,
-    fapplyE,
+    apE,
+    altE,
     pureE,
+    bindE,
 
     -- ** Monoids
     mconcatE,
@@ -105,21 +121,32 @@ module Gen.Source.Exts
     -- ** Lenses
     fieldLensE,
     fieldGetterN,
-
-    -- * Guards and matches
-    guarded,
-    unguarded,
-    otherwiseE,
-    guardE,
   )
 where
 
 import qualified Data.Bifunctor as Bifunctor
+import qualified Data.Char as Char
 import qualified Data.Either as Either
 import qualified Data.Foldable as Foldable
 import qualified Data.Text as Text
+import qualified Data.Text.Lazy as Text.Lazy
 import Gen.Prelude
 import qualified Language.Haskell.Exts as Exts
+
+-- Pretty printing
+
+renderBlock :: Exts.Pretty a => a -> LazyText
+renderBlock =
+  Text.Lazy.dropWhile Char.isSpace
+    . Text.Lazy.pack
+    . Exts.prettyPrintWithMode Exts.defaultMode
+
+renderInline :: Exts.Pretty a => a -> LazyText
+renderInline =
+  Text.Lazy.dropWhile Char.isSpace
+    . Text.Lazy.pack
+    . Exts.prettyPrintWithMode
+      (Exts.defaultMode {Exts.layout = Exts.PPInLine, Exts.spacing = False})
 
 -- Aliases
 
@@ -159,7 +186,6 @@ type GuardedRhs = Exts.GuardedRhs ()
 
 type Match = Exts.Match ()
 
-
 -- Types
 
 varT :: Text -> Type
@@ -186,7 +212,7 @@ forallT :: Context -> Type -> Type
 forallT ctx = Exts.TyForall () Nothing (Just ctx)
 
 assertT :: Type -> Context
-assertT = Exts.CxSingle () . Exts.TypeA () 
+assertT = Exts.CxSingle () . Exts.TypeA ()
 
 -- Names
 
@@ -204,10 +230,7 @@ opQ = Exts.op . Exts.sym . Text.unpack
 varP :: Text -> Pat
 varP = Exts.pvar . nameN
 
--- Deriving
-
 -- Declarations
-
 
 dataD :: Text -> Bool -> [QualConDecl] -> [Deriving] -> Decl
 dataD name isNewtype =
@@ -235,8 +258,15 @@ derivingD isNewtype xs =
       Exts.IRule () Nothing Nothing $
         Exts.IHCon () (nameQ ("Core." <> name))
 
-qualConD :: ConDecl -> QualConDecl
-qualConD = Exts.QualConDecl () Nothing Nothing
+conD :: Text -> [Type] -> QualConDecl
+conD name =
+  Exts.QualConDecl () Nothing Nothing
+    . Exts.ConDecl () (nameN name)
+
+recordD :: Text -> [FieldDecl] -> QualConDecl
+recordD name =
+  Exts.QualConDecl () Nothing Nothing
+    . Exts.RecDecl () (nameN name)
 
 fieldD :: Text -> Type -> FieldDecl
 fieldD name = Exts.FieldDecl () [nameN name]
@@ -250,13 +280,19 @@ funBindD = Exts.InsDecl () . Exts.FunBind ()
 patBindD :: Pat -> Exp -> InstDecl
 patBindD pat = Exts.InsDecl () . Exts.patBind pat
 
-matchNullaryD :: Text -> Rhs -> Maybe Binds -> Match
-matchNullaryD name =
-  Exts.Match () (nameN name) []
-  
-matchWildcardD :: Text -> Maybe Text -> Bool -> Rhs -> Maybe Binds -> Match
-matchWildcardD name mvar isEmpty =
-  Exts.Match () (nameN name) [patAs patArg]
+-- Matches
+
+varsM :: Text -> [Text] -> Maybe Binds -> Rhs -> Match
+varsM name vars =
+  flip (Exts.Match () (nameN name) (map varP vars))
+
+nullM :: Text -> Maybe Binds -> Rhs -> Match
+nullM name =
+  flip (Exts.Match () (nameN name) [])
+
+wildM :: Text -> Text -> Maybe Text -> Bool -> Maybe Binds -> Rhs -> Match
+wildM name type' mvar isEmpty =
+  flip (Exts.Match () (nameN name) [patAs patArg])
   where
     patAs =
       case mvar of
@@ -266,7 +302,23 @@ matchWildcardD name mvar isEmpty =
     patArg =
       if isEmpty
         then Exts.PWildCard ()
-        else Exts.PRec () (nameQ name) [Exts.PFieldWildcard ()]
+        else Exts.PRec () (nameQ type') [Exts.PFieldWildcard ()]
+
+-- Guards
+
+guardedRhs :: [GuardedRhs] -> Rhs
+guardedRhs = Exts.GuardedRhss ()
+
+unguardedRhs :: Exp -> Rhs
+unguardedRhs = Exts.UnGuardedRhs ()
+
+otherwiseRhs :: Exp -> GuardedRhs
+otherwiseRhs = guardRhs (varE "Core.otherwise")
+
+guardRhs :: Exp -> Exp -> GuardedRhs
+guardRhs a b = Exts.GuardedRhs () [Exts.qualStmt a] b
+
+-- Instances
 
 instanceD :: Text -> Text -> [InstDecl] -> Decl
 instanceD class' type' =
@@ -328,16 +380,22 @@ mappendE a b = Exts.infixApp a (opQ "Core.<>") b
 applicativeE :: Exp -> [Exp] -> Exp
 applicativeE a = \case
   [] -> pureE a
-  b : bs -> fmapE a (Foldable.foldl' fapplyE b (map Exts.paren bs))
+  b : bs -> a `fmapE` Foldable.foldl' apE (Exts.paren b) (map Exts.paren bs)
 
 fmapE :: Exp -> Exp -> Exp
 fmapE f a = Exts.infixApp f (opQ "Core.<$>") a
 
-fapplyE :: Exp -> Exp -> Exp
-fapplyE f a = Exts.infixApp f (opQ "Core.<*>") a
+bindE :: Exp -> Exp -> Exp
+bindE f a = Exts.infixApp f (opQ "Core.>>=") a
 
 pureE :: Exp -> Exp
 pureE = Exts.app (varE "Core.pure")
+
+apE :: Exp -> Exp -> Exp
+apE f a = Exts.infixApp f (opQ "Core.<*>") a
+
+altE :: Exp -> Exp -> Exp
+altE f a = Exts.infixApp f (opQ "Core.<|>") a
 
 justE :: Exp -> Exp
 justE = Exts.app (varE "Core.Just")
@@ -361,17 +419,3 @@ fieldGetterN e = if go e then "Lens.^?" else "Lens.^."
       Exts.Var _ (Exts.UnQual _ (Exts.Ident _ "Lens._last")) -> True
       Exts.Var _ (Exts.UnQual _ (Exts.Ident _ "Lens._Just")) -> True
       _ -> False
-
--- Guards
-
-guarded :: [GuardedRhs]-> Rhs
-guarded = Exts.GuardedRhss ()
-
-unguarded :: Exp -> Rhs
-unguarded = Exts.UnGuardedRhs ()
-
-otherwiseE :: Exp -> GuardedRhs
-otherwiseE = guardE (varE "Core.otherwise")
-
-guardE :: Exp -> Exp -> GuardedRhs
-guardE a b = Exts.GuardedRhs () [Exts.qualStmt a] b

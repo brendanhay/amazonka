@@ -14,6 +14,7 @@ import qualified Control.Lens as Lens
 import qualified Control.Monad.Except as Except
 import qualified Data.Aeson as Aeson
 import qualified Data.List as List
+import Debug.Trace
 import Gen.Prelude
 import Gen.Types.Ann
 import Gen.Types.Field
@@ -101,7 +102,7 @@ requestInsts m oname h r fs = do
           ++ map Left protocolHeaders
 
     toPath :: Either String Inst
-    toPath = ToPath <$> uriFields oname h uriPath id fs
+    toPath = ToPath <$> uriFields oname "Path" (h ^. uriPath) fs r
 
     toBody :: Maybe Inst
     toBody = ToBody <$> (stream <|> List.find fieldLitPayload fields)
@@ -111,8 +112,9 @@ requestInsts m oname h r fs = do
 
     concatQuery :: [Inst] -> Either String [Inst]
     concatQuery is = do
-      xs <- uriFields oname h uriQuery (,Nothing) fs
-      pure $! merged xs : filter (not . f) is
+      xs <- uriFields oname "Query" (h ^. uriQuery) fs r
+
+      pure $! merged (map (first (,Nothing)) xs) : filter (not . f) is
       where
         merged xs =
           let ys =
@@ -223,29 +225,36 @@ notLocated :: [Field] -> [Field]
 notLocated = satisfy (\l -> isNothing l || Just Body == l)
 
 uriFields ::
-  (Foldable f, Traversable t) =>
   Id ->
-  s ->
-  Getter s (t Segment) ->
-  (Text -> a) ->
-  f Field ->
-  Either String (t (Either a Field))
-uriFields oname h l f fs = traverse go (h ^. l)
+  String ->
+  [Segment] ->
+  [Field] ->
+  Ref ->
+  Either String [Either Text Field]
+uriFields oname mode segments fields ref =
+  traverse go segments
   where
-    go (Tok t) = pure $ Left (f t)
-    go (Var v) = Right <$> maybe (Left missing) Right (List.find match fs)
+    go (Tok t) = pure $ Left t
+    go (Var v) = Right <$> maybe (Left missing) Right (List.find match fields)
       where
         match x = memberId v == name x
+
         missing =
-          "Missing field corresponding to URI variable "
+          "Operation "
+            ++ show oname
+            ++ " missing "
+            ++ mode
+            ++ " variable "
             ++ show v
             ++ " in field names "
-            ++ show ids
-            ++ "\nfor operation "
-            ++ show oname
+            ++ show valid
+            ++ ", segments "
+            ++ show segments
+            ++ "\n"
+            ++ show ref
 
-    ids :: [Text]
-    ids = foldMap ((: []) . name) fs
+    valid :: [Text]
+    valid = map name fields
 
     name x =
       fromMaybe

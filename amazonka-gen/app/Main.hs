@@ -13,10 +13,10 @@ module Main (main) where
 import qualified Control.Monad.State.Strict as State
 import qualified Data.Foldable as Foldable
 import qualified Data.Text as Text
-import qualified Gen.AST as AST
 import Gen.IO
 import qualified Gen.JSON as JSON
 import Gen.Prelude
+import qualified Gen.Transform as AST
 import qualified Gen.Tree as Tree
 import Gen.Types hiding (info)
 import qualified Options.Applicative as Options
@@ -28,9 +28,9 @@ data Options = Options
   { optionOutput :: FilePath,
     optionModels :: [FilePath],
     optionAnnexes :: FilePath,
-    optionConfigs :: FilePath,
+    optionServices :: FilePath,
     optionTemplates :: FilePath,
-    optionStatic :: FilePath,
+    optionAssets :: FilePath,
     optionRetry :: FilePath,
     optionVersions :: Versions
   }
@@ -57,7 +57,7 @@ parser =
           <> Options.help "Directory containing botocore model annexes."
       )
     <*> Options.strOption
-      ( Options.long "configs"
+      ( Options.long "services"
           <> Options.metavar "DIR"
           <> Options.help "Directory containing service configuration."
       )
@@ -67,7 +67,7 @@ parser =
           <> Options.help "Directory containing ED-E templates."
       )
     <*> Options.strOption
-      ( Options.long "static"
+      ( Options.long "assets"
           <> Options.metavar "DIR"
           <> Options.help "Directory containing static files for generated libraries."
       )
@@ -124,13 +124,13 @@ main = do
       readmeTemplate <- load "readme.ede"
       operationTemplate <- load "operation.ede"
       typesTemplate <- load "types.ede"
-      sumTemplate <- load "types/sum.ede"
-      productTemplate <- load "types/product.ede"
+      sumTemplate <- load "sum.ede"
+      productTemplate <- load "product.ede"
       testMainTemplate <- load "test/main.ede"
       testNamespaceTemplate <- load "test/namespace.ede"
       testInternalTemplate <- load "test/internal.ede"
       fixturesTemplate <- load "test/fixtures.ede"
-      fixtureRequestTemplate <- load "test/fixtures/request.ede"
+      fixtureRequestTemplate <- load "test/request.ede"
       blankTemplate <- load "blank.ede"
 
       done
@@ -155,7 +155,7 @@ main = do
         ++ show (model ^. modelVersion)
 
     config <-
-      JSON.required (optionConfigs </> configFile model)
+      JSON.required (optionServices </> configFile model)
         >>= hoistEither . JSON.parse
 
     api <-
@@ -193,7 +193,7 @@ main = do
         ++ semver (lib ^. libraryVersion)
         ++ " package"
 
-    copyDir optionStatic (Tree.root dir)
+    copyDir optionAssets (Tree.root dir)
 
     done
 

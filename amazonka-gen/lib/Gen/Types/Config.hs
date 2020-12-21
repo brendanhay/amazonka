@@ -122,7 +122,8 @@ data Config = Config
     _operationPlugins :: InsOrdHashMap Id [Text],
     _typeModules :: [NS],
     _typeOverrides :: InsOrdHashMap Id Override,
-    _extraDependencies :: [Text]
+    _extraDependencies :: [Text],
+    _newtypeStringLiterals :: Bool
   }
 
 $(Lens.makeClassy ''Config)
@@ -136,6 +137,7 @@ instance FromJSON Config where
       <*> o .:? "typeModules" .!= mempty
       <*> o .:? "typeOverrides" .!= mempty
       <*> o .:? "extraDependencies" .!= mempty
+      <*> o .:? "newtypeStringLiterals" .!= True
 
 data Library = Library
   { _versions' :: Versions,

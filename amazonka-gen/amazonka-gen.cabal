@@ -115,9 +115,9 @@ library
     Gen.JSON
     Gen.Prelude
     Gen.Protocol
-    Gen.Source.Data
-    Gen.Source.Decl
-    Gen.Source.Exts
+    Gen.Syntax.Data
+    Gen.Syntax.Decl
+    Gen.Syntax.Exts
     Gen.Text
     Gen.TH
     Gen.Transform

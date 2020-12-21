@@ -85,13 +85,13 @@ instance HasInfo Field where
 
 -- FIXME: Can just add the metadata to field as well since
 -- the protocol/timestamp are passed in everywhere in the .Syntax module.
-mkFields ::
+getStructFields ::
   HasMetadata a Identity =>
   a ->
   Solved ->
   StructF (Shape Solved) ->
   [Field]
-mkFields (Lens.view metadata -> m) s st =
+getStructFields (Lens.view metadata -> m) s st =
   zipWith mk [1 ..] $ HashMap.toList (st ^. members)
   where
     mk :: Int -> (Id, Ref) -> Field

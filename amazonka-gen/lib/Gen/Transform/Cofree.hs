@@ -1,5 +1,5 @@
 -- |
--- Module      : Gen.AST.Cofree
+-- Module      : Gen.Transform.Cofree
 -- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,7 +8,7 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Gen.AST.Cofree where
+module Gen.Transform.Cofree where
 
 import qualified Control.Comonad as Comonad
 import qualified Control.Comonad.Cofree as Comonad.Cofree

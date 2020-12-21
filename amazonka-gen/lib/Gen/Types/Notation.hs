@@ -19,56 +19,56 @@ import qualified Data.Text as Text
 import Gen.Prelude
 import Gen.Types.Id
 
-data Key a
-  = Key {fromKey :: a}
-  | Each {fromKey :: a}
-  | Last {fromKey :: a}
-  deriving stock (Eq, Show, Functor, Foldable)
+data Builtin
+  = IsEmpty
+  | NotEmpty
+  | Each
+  | Last
+  deriving stock (Eq, Show)
 
 data Notation a
-  = Deref (NonEmpty (Key a))
-  | Infix Text (Notation a)
-  | Choice (Notation a) (Notation a)
+  = Key a
+  | App Builtin (Notation a)
+  | Dot (Notation a) (Notation a)
+  | Alt (Notation a) (Notation a)
   deriving stock (Eq, Show, Functor, Foldable)
 
 instance FromJSON (Notation Id) where
   parseJSON = Aeson.withText "notation" (either fail pure . parseNotation)
 
 parseNotation :: Text -> Either String (Notation Id)
-parseNotation t = mappend msg `first` A.parseOnly (expr1) t
+parseNotation text =
+  annotate `first` A.parseOnly expr2 text
   where
-    msg =
+    annotate err =
       "Failed parsing index notation: "
-        ++ Text.unpack t
+        ++ Text.unpack text
         ++ ", with "
+        ++ err
 
-    expr0 = empty dereference <|> nonEmpty dereference <|> dereference
-    expr1 = choice <|> expr0
+    expr0 = each <|> last <|> key
+    expr1 = isEmpty <|> notEmpty <|> expr0
+    expr2 = dot <|> alt <|> expr1
 
-    choice =
-      Choice
-        <$> expr0
-          <* A.string "||"
-        <*> expr1
-        A.<?> "expr1 || expr2"
+    key = Key <$> label
 
-    empty p =
-      A.string "length(" *> fmap (Infix "matchEmpty") p <* A.char ')'
+    alt = Alt <$> (expr1 <* A.string "||") <*> expr2
+
+    dot = List.foldr1 Dot <$> A.sepBy1 expr1 (A.char '.')
+
+    each = App Each <$> key <* A.string "[]"
+
+    last = App Last <$> key <* A.string "[-1]"
+
+    isEmpty =
+      A.string "length(" *> fmap (App IsEmpty) expr2 <* A.char ')'
         <* strip (A.string "==")
         <* strip (A.string "`0`")
 
-    nonEmpty p =
-      A.string "length(" *> fmap (Infix "matchNonEmpty") p <* A.char ')'
+    notEmpty =
+      A.string "length(" *> fmap (App NotEmpty) expr2 <* A.char ')'
         <* strip (A.char '>')
         <* strip (A.string "`0`")
-
-    dereference = do
-      x : xs <- A.sepBy1 key (A.char '.')
-      pure $! Deref (x :| xs)
-
-    key = key1 <|> key0
-    key1 = (Each <$> label <* A.string "[]") <|> (Last <$> label <* A.string "[-1]")
-    key0 = (Key <$> label)
 
     label =
       strip $ do

@@ -1,5 +1,5 @@
 -- |
--- Module      : Gen.Source.Decl
+-- Module      : Gen.Syntax.Decl
 -- Copyright   : (c) 2013-2020 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,7 +8,31 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Gen.Source.Decl () where
+module Gen.Syntax.Decl
+  ( -- * Datatypes
+    derivingD,
+    patternD,
+    recordD,
+    fieldsD,
+    sigSmartCtorD,
+    funSmartCtorD,
+    sigLensD,
+    funLensD,
+
+    -- * Service configuration
+    sigServiceD,
+    funServiceD,
+    sigErrorD,
+    funErrorD,
+    sigWaiterD,
+    funWaiterD,
+
+    -- * Instances
+    instancesD,
+    classAWSRequestD,
+    classAWSPagerD,
+  )
+where
 
 import qualified Control.Comonad as Comonad
 import qualified Control.Lens as Lens
@@ -19,35 +43,51 @@ import qualified Data.Text as Text
 import Gen.Prelude
 import Gen.Protocol (Names (..))
 import qualified Gen.Protocol as Protocol
-import qualified Gen.Source.Exts as Exts
+import qualified Gen.Syntax.Exts as Exts
 import Gen.Types
 import Gen.Types.Field
 import Gen.Types.Instance
 
 -- Datatypes
 
-dataD :: Id -> Bool -> [Exts.QualConDecl] -> [Exts.Deriving] -> Exts.Decl
-dataD name isNewtype =
-  Exts.dataD (typeId name) isNewtype 
+-- The data declaration, deriving clauses, and fields are all rendered
+-- separately since it's easier to interpserse the formatted documentation
+-- using templating.
 
 derivingD :: Bool -> [Derive] -> [Exts.Deriving]
 derivingD isNewtype =
   Exts.derivingD isNewtype
     . map derivingStrategy
 
-recordD ::
+patternD :: Id -> Text -> [Exts.Deriving] -> Exts.Decl
+patternD (typeId -> name) ctor =
+  Exts.dataD
+    name
+    True
+    [ Exts.recordD (name <> "'") [Exts.fieldD ctor (Exts.conT "Core.Text")]
+    ]
+
+recordD :: Id -> Bool -> Exts.Decl
+recordD (typeId -> name) isNewtype =
+  Exts.dataD
+    name
+    isNewtype
+    [ Exts.conD (name <> "'") []
+    ]
+    []
+
+fieldsD ::
   HasMetadata meta Identity =>
   meta ->
   Id ->
   [Field] ->
   [(Text, Exts.FieldDecl, Maybe Help)]
-recordD meta name =
+fieldsD meta name =
   map $ \field ->
-      ( fieldAccessor field,
-        Exts.fieldD (fieldAccessor field) $
-          fieldT meta (Just (typeId name)) field,
-        _refDocumentation (_fieldRef field)
-      )
+    ( fieldAccessor field,
+      Exts.fieldD (fieldAccessor field) (fieldT meta (Just (typeId name)) field),
+      _refDocumentation (_fieldRef field)
+    )
 
 sigSmartCtorD :: HasMetadata meta Identity => meta -> Id -> [Field] -> Exts.Decl
 sigSmartCtorD meta name fields =
@@ -57,7 +97,7 @@ sigSmartCtorD meta name fields =
 
 funSmartCtorD :: Id -> [Field] -> Exts.Decl
 funSmartCtorD name fields =
-  Exts.sfun (Exts.nameN (smartCtorId name)) puns (Exts.unguarded rhs) Exts.noBinds
+  Exts.sfun (Exts.nameN (smartCtorId name)) puns (Exts.unguardedRhs rhs) Exts.noBinds
   where
     puns =
       map fieldPunE (filter fieldIsParam fields)
@@ -70,22 +110,21 @@ funSmartCtorD name fields =
       | fieldMaybe field = Exts.fieldR label Exts.nothingE
       | fieldMonoid field = Exts.fieldR label Exts.memptyE
       | otherwise = Exts.punR label
-     where
-      label = fieldAccessor field
+      where
+        label = fieldAccessor field
 
 sigLensD :: HasMetadata meta Identity => meta -> Id -> Field -> Exts.Decl
 sigLensD meta name field =
   Exts.typeSigD (fieldLens field) $
-   Exts.appT (Exts.conT "Lens.Lens'") (Exts.conT (typeId name))
-    `Exts.appT`
-      fieldT meta (Just (typeId name)) field
-  
+    Exts.appT (Exts.conT "Lens.Lens'") (Exts.conT (typeId name))
+      `Exts.appT` fieldT meta (Just (typeId name)) field
+
 funLensD :: HasMetadata meta Identity => meta -> Id -> Field -> Exts.Decl
 funLensD meta name field =
   Exts.sfun
     (Exts.nameN (fieldLens field))
     []
-    (Exts.unguarded (fieldLensE field))
+    (Exts.unguardedRhs (fieldLensE field))
     Exts.noBinds
 
 -- Service Configuration
@@ -119,7 +158,7 @@ funServiceD meta spec =
       ]
 
     retry =
-      Exts.sfun (Exts.nameN "retry") [] . Exts.unguarded $
+      Exts.sfun (Exts.nameN "retry") [] . Exts.unguardedRhs $
         Exts.conR
           ("Core." <> _delayType delay)
           [ Exts.fieldR "Core._retryBase" (Exts.fracE (_delayBase delay)),
@@ -132,15 +171,15 @@ funServiceD meta spec =
       _retryDelay spec
 
     check =
-      Exts.sfun (Exts.nameN "check") [Exts.nameN "e"] (Exts.guarded branches)
+      Exts.sfun (Exts.nameN "check") [Exts.nameN "e"] (Exts.guardedRhs branches)
       where
         branches =
           mapMaybe policy (HashMap.toList (_retryPolicies spec))
-            ++ [Exts.otherwiseE Exts.nothingE]
+            ++ [Exts.otherwiseRhs Exts.nothingE]
 
         policy :: (Text, Policy) -> Maybe Exts.GuardedRhs
         policy (k, v) =
-          Exts.guardE
+          Exts.guardRhs
             <$> guard v
             <*> pure (Exts.justE (Exts.strE k))
 
@@ -181,8 +220,8 @@ sigErrorD :: Text -> Exts.Decl
 sigErrorD name =
   Exts.typeSigD name $
     Exts.forallT
-      (Exts.assertT (Exts.conT "Core.AsError" `Exts.appT` Exts.varT "a")) $
-      Exts.conT "Lens.Getting"
+      (Exts.assertT (Exts.conT "Core.AsError" `Exts.appT` Exts.varT "a"))
+      $ Exts.conT "Lens.Getting"
         `Exts.appT` Exts.parenT (Exts.conT "Core.First" `Exts.appT` Exts.conT "Core.ServiceError")
         `Exts.appT` (Exts.varT "a")
         `Exts.appT` Exts.conT "Core.ServiceError"
@@ -195,7 +234,7 @@ funErrorD ::
   Text ->
   Exts.Decl
 funErrorD meta name mstatus code =
-  Exts.sfun (Exts.nameN name) [] (Exts.unguarded rhs) Exts.noBinds
+  Exts.sfun (Exts.nameN name) [] (Exts.unguardedRhs rhs) Exts.noBinds
   where
     rhs = maybe withCode withStatus mstatus
 
@@ -220,7 +259,7 @@ sigWaiterD name spec =
 
 funWaiterD :: Id -> Waiter Field -> Exts.Decl
 funWaiterD name spec =
-  Exts.sfun (Exts.nameN (smartCtorId name)) [] (Exts.unguarded waitRecord) Exts.noBinds
+  Exts.sfun (Exts.nameN (smartCtorId name)) [] (Exts.unguardedRhs waitRecord) Exts.noBinds
   where
     waitRecord =
       Exts.conR
@@ -234,8 +273,10 @@ funWaiterD name spec =
 
     match x =
       case (_acceptMatch x, _acceptArgument x) of
-        (_, Just (Infix lens _)) ->
-          Exts.appFun (Exts.varE ("Waiter." <> lens)) (expect x : criteria x : arguments x)
+        (_, Just (App IsEmpty _)) ->
+          Exts.appFun (Exts.varE "Waiter.matchEmpty") (expect x : criteria x : arguments x)
+        (_, Just (App NotEmpty _)) ->
+          Exts.appFun (Exts.varE "Waiter.matchNonEmpty") (expect x : criteria x : arguments x)
         (Path, _) ->
           Exts.appFun (Exts.varE "Waiter.matchAll") (expect x : criteria x : arguments x)
         (PathAll, _) ->
@@ -265,8 +306,8 @@ funWaiterD name spec =
 
 -- Instances
 
-instanceDecls :: Protocol -> Id -> [Inst] -> [Exts.Decl]
-instanceDecls protocol' name xs =
+instancesD :: Protocol -> Id -> [Inst] -> [Exts.Decl]
+instancesD protocol' name xs =
   mapMaybe declare xs
   where
     declare = \case
@@ -289,12 +330,16 @@ classToJSOND protocol' name fields =
   Exts.instanceD
     "Core.FromJSON"
     (typeId name)
-    []
-
--- instD1 "Core.ToJSON" name $
---   if null fields
---     then constD "toJSON" (Exts.app (Exts.varE "Core.Object") memptyE)
---     else wildcardD name "toJSON" (toJSONE protocol' fields)
+    [ Exts.funBindD
+        [ Exts.wildM "toJSON" (typeId name) Nothing isEmpty Exts.noBinds $
+            Exts.unguardedRhs $
+              if isEmpty
+                then Exts.app (Exts.varE "Core.Object") Exts.memptyE
+                else toJSONE protocol' fields
+        ]
+    ]
+  where
+    isEmpty = null fields
 
 classFromJSOND :: Protocol -> Id -> [Field] -> Exts.Decl
 classFromJSOND protocol' name fields =
@@ -302,21 +347,16 @@ classFromJSOND protocol' name fields =
     "Core.FromJSON"
     (typeId name)
     [ Exts.funBindD
-        []
+        [ Exts.nullM "parseJSON" Exts.noBinds $
+            Exts.unguardedRhs $
+              Exts.applyE
+                (Exts.app (Exts.varE "Core.withObject") (Exts.strE (typeId name)))
+                . Exts.lamE [Exts.varP "x"]
+                $ Exts.applicativeE
+                  (Exts.varE (ctorId name))
+                  (map (parseJSONE protocol') fields)
+        ]
     ]
-
--- Exts.matchNullaryD
---   "parseJSON"
---   (Exts.unguarded rhs)
---   Nothing
-
--- where
---   rhs =
---       Exts.app
---         (Exts.app (Exts.varE "Core.withObject") (Exts.strE (typeId n)))
---         (Exts.lamE [Exts.varP "x"] es)
-
---   es = ctorE n $ map (parseJSONE p pJ pJMay pJDef) fs
 
 classToXMLD ::
   Protocol ->
@@ -324,38 +364,36 @@ classToXMLD ::
   [Field] ->
   Maybe (Maybe Text, Either Text Field) ->
   Exts.Decl
-classToXMLD protocol' name fields = \case
-  _Nothing ->
-    Exts.instanceD
-      "Core.ToXML"
-      (typeId name)
-      [ Exts.funBindD []
+classToXMLD protocol' name fields document =
+  Exts.instanceD
+    "Core.ToXML"
+    (typeId name)
+    $ [ Exts.funBindD
+          [ Exts.wildM "toXML" (typeId name) Nothing (null fields) Exts.noBinds $
+              Exts.unguardedRhs (toXMLE protocol' fields)
+          ]
       ]
-
---   instD1 "Core.ToXML" name $
---     if null fields
---       then constD "toXML" memptyE
---       else wildcardD name "toXML" (toXMLE protocol' fields)
--- Just (mns, root) ->
---   instD
---     "Core.ToXML"
---     name
---     [funArgsD "toXMLDocument" [] (toXMLDocumentE protocol' mns root),
---       if null fields
---         then constD "toXML" memptyE
---         else wildcardD name "toXML" (toXMLE protocol' fields)
---     ]
+      ++ case document of
+        Nothing -> []
+        Just (mns, root) ->
+          [ Exts.funBindD
+              [ Exts.nullM "toXMLDocument" Exts.noBinds $
+                  Exts.unguardedRhs (toXMLDocumentE protocol' mns root)
+              ]
+          ]
 
 classFromXMLD :: Protocol -> Id -> [Field] -> Exts.Decl
 classFromXMLD protocol' name fields =
   Exts.instanceD
     "Core.FromXML"
     (typeId name)
-    [ Exts.funBindD []
+    [ Exts.funBindD
+        [ Exts.varsM "parseXML" ["x"] Exts.noBinds $
+            Exts.unguardedRhs $
+              Exts.applicativeE (Exts.varE (ctorId name)) $
+                map (parseXMLE protocol') fields
+        ]
     ]
-
--- decodeD "Core.FromXML" name "parseXML" (ctorE name)
---   . map (parseXMLE protocol')
 
 classAWSPagerD :: Id -> Pager Field -> Exts.Decl
 classAWSPagerD name pager =
@@ -363,50 +401,71 @@ classAWSPagerD name pager =
     "Pager.AWSPager"
     (typeId name)
     [ Exts.funBindD
-        []
-        -- Exts.sfun (ident "page") [ident "rq", ident "rs"] (rhs p) Exts.noBinds
+        [ Exts.varsM "page" ["rq", "rs"] Exts.noBinds rhs
+        ]
     ]
+  where
+    rhs =
+      case pager of
+        Only t ->
+          Exts.guardedRhs
+            [ stop (notationE False (_tokenOutput t)),
+              other [t]
+            ]
+        --
+        Next ks t ->
+          Exts.guardedRhs $
+            [stop (notationE False (_tokenOutput t))]
+              ++ map (stop . notationE True) (Foldable.toList ks)
+              ++ [other [t]]
+        --
+        Many k (t :| ts) ->
+          Exts.guardedRhs
+            [ stop (notationE False k),
+              check t ts,
+              other (t : ts)
+            ]
 
--- where
---   rhs = \case
---     Only t ->
---       Exts.GuardedRhss
---         ()
---         [ stop (notationE False (_tokenOutput t)),
---           other [t]
---         ]
---     --
---     Next ks t ->
---       Exts.GuardedRhss () $
---         [stop (notationE False (_tokenOutput t))]
---           ++ map (stop . notationE True) (Foldable.toList ks)
---           ++ [other [t]]
---     --
---     Many k (t :| ts) ->
---       Exts.GuardedRhss
---         ()
---         [ stop (notationE False k),
---           check t ts,
---           other (t : ts)
---         ]
+    stop expr =
+      Exts.guardRhs
+        (Exts.app (Exts.varE "Pager.stop") (viewResponse expr))
+        Exts.nothingE
 
---   stop x = guardE (Exts.app (Exts.varE "Pager.stop") (rs x)) nothingE
+    check initial rest =
+      Exts.guardRhs
+        (Foldable.foldl' andAlso (isNothing initial) rest)
+        Exts.nothingE
+      where
+        andAlso lhs token =
+          Exts.infixApp lhs (Exts.opQ "Core.&&") (isNothing token)
 
---   other = otherwiseE . rq . Foldable.foldl' f (Exts.varE "rq")
---     where
---       f :: Exp -> Token Field -> Exts.Exp
---       f e x =
---         Exts.infixApp e "Core.&"
---           . Exts.infixApp (x ^. tokenInput . Lens.to (notationE False)) "Lens..~"
---           $ rs (x ^. tokenOutput . Lens.to (notationE False))
+        isNothing token =
+          Exts.app (Exts.varE "Core.isNothing") $
+            viewResponse (outputNotation token)
 
---   check t ts = guardE (Foldable.foldl' f (g t) ts) nothingE
---     where
---       f x = Exts.infixApp x "Core.&&" . g
---       g y = Exts.app (Exts.varE "Core.isNothing") $ rs (y ^. tokenOutput . Lens.to (notationE False))
+    other =
+      Exts.otherwiseRhs
+        . Exts.justE
+        . Foldable.foldl' setRequest (Exts.varE "rq")
+      where
+        setRequest lhs token =
+          Exts.infixApp lhs (Exts.opQ "Core.&") $
+            Exts.infixApp
+              (inputNotation token)
+              (Exts.opQ "Lens..~")
+              (viewResponse (outputNotation token))
 
---   rq x = Exts.app justE x
---   rs x = Exts.infixApp (Exts.varE "rs") (qop (getterN x)) x
+    inputNotation token =
+      notationE False (_tokenInput token)
+
+    outputNotation token =
+      notationE False (_tokenOutput token)
+
+    viewResponse expr =
+      Exts.infixApp
+        (Exts.varE "rs")
+        (Exts.opQ (Exts.fieldGetterN expr))
+        expr
 
 classAWSRequestD ::
   HasMetadata meta Identity =>
@@ -436,10 +495,7 @@ classAWSRequestD cfg meta http (rqRef, rqInsts, rqFields) (rsRef, rsFields) =
 funResponseD :: Protocol -> Ref -> [Field] -> Exts.InstDecl
 funResponseD protocol' ref fields =
   Exts.funBindD
-    [ Exts.matchNullaryD
-        "response"
-        (Exts.unguarded rhs)
-        Nothing
+    [ Exts.nullM "response" Exts.noBinds (Exts.unguardedRhs rhs)
     ]
   where
     rhs = Exts.app responseFunction rhsBody
@@ -532,12 +588,8 @@ funRequestD ::
   Exts.InstDecl
 funRequestD cfg meta http ref instances fields =
   Exts.funBindD
-    [ Exts.matchWildcardD
-        "request"
-        (Just "x")
-        (null fields)
-        (Exts.unguarded extendedRhs)
-        Nothing
+    [ Exts.wildM "request" "Core.Request" (Just "x") (null fields) Exts.noBinds $
+        Exts.unguardedRhs extendedRhs
     ]
   where
     extendedRhs =
@@ -642,14 +694,14 @@ parseHeadersE protocol' field
 
 parseJSONE :: Protocol -> Field -> Exts.Exp
 parseJSONE protocol' field
-  | fieldMonoid field =
+  | fieldMaybe field =
+    Exts.infixApp bind (Exts.opQ "Core..:?") name
+  --
+  | fieldMonoid field && not (fieldMaybe field) =
     Exts.infixApp
       (Exts.infixApp bind (Exts.opQ "Core..:?") name)
       (Exts.opQ "Core..!=")
       Exts.memptyE
-  --
-  | fieldMaybe field =
-    Exts.infixApp bind (Exts.opQ "Core..:?") name
   --
   | otherwise =
     Exts.infixApp bind (Exts.opQ "Core..:") name
@@ -658,30 +710,51 @@ parseJSONE protocol' field
     bind = Exts.varE "x"
 
 parseXMLE :: Protocol -> Field -> Exts.Exp
-parseXMLE p f = Exts.strE ""
+parseXMLE protocol' field =
+  case nestedNames protocol' Output field of
+    NMap mname itemPrefix keyPrefix valPrefix ->
+      unflatten mname $
+        Exts.appFun
+          (Exts.varE "Core.parseXMLMap")
+          [Exts.strE itemPrefix, Exts.strE keyPrefix, Exts.strE valPrefix]
+    --
+    NList mname itemPrefix
+      | fieldMonoid field ->
+        unflatten mname $
+          Exts.appFun
+            (Exts.varE "Core.parseXMLList")
+            [Exts.strE itemPrefix]
+      --
+      | otherwise ->
+        unflatten mname $
+          Exts.appFun
+            (Exts.varE "Core.parseXMLNonEmpty")
+            [Exts.strE itemPrefix]
+    --
+    NName {} ->
+      parseField
+  where
+    unflatten mname rhs =
+      case mname of
+        Nothing -> parseField
+        Just {} -> Exts.infixApp parseField (Exts.opQ "Core..<@>") rhs
 
--- case outputNames p f of
--- NMap mn e k v -> unflatE mn pXMap [str e, Exts.strE k, Exts.strE v]
--- NList mn i
---   | fieldMonoid f -> unflatE mn pXList [str i]
---   | otherwise -> unflatE mn pXList1 [str i]
--- NName n
---   | req -> decodeE x pX n
---   | otherwise -> decodeE x pXMay n
--- where
---   unflatE Nothing g xs
---     | req = Exts.appFun g (xs ++ [x])
---     | otherwise = Exts.app (may (Exts.appFun g xs)) x
---   unflatE (Just n) g xs =
---     Exts.infixApp (defaultMonoidE x n pXMay pXDef) "Core.>>=" $
---       if req
---         then Exts.appFun g xs
---         else may (Exts.appFun g xs)
+    parseField
+      | fieldMaybe field =
+        Exts.infixApp bind (Exts.opQ "Core..@?") name
+      --
+      | fieldMonoid field && not (fieldMaybe field) =
+        Exts.infixApp
+          (Exts.infixApp bind (Exts.opQ "Core..@?") name)
+          (Exts.opQ "Core..@!")
+          Exts.memptyE
+      --
+      | otherwise =
+        Exts.infixApp bind (Exts.opQ "Core..@") name
 
---   may = Exts.app (Exts.varE "Core.unlessEmpty")
---   req = not (fieldMaybe f)
+    name = Exts.strE (memberName protocol' Output field)
+    bind = Exts.varE "x"
 
---     x = var "x"
 -- Expression Encoders
 
 toPathE :: [Either Text Field] -> Exts.Exp
@@ -691,7 +764,7 @@ toPathE = \case
   x : xs -> Foldable.foldl' toPath (toText x) xs
     where
       toPath e a =
-        Exts.mappendE e (toText a)
+        Exts.mappendE e (Exts.paren (toText a))
 
       toText =
         either Exts.strE (Exts.app (Exts.varE "Core.toText") . fieldSelectE)
@@ -702,7 +775,7 @@ toQueryE protocol' = \case
   x : xs -> Foldable.foldl' toQuery (toValue x) xs
   where
     toQuery e a =
-      Exts.mappendE e (toValue a)
+      Exts.mappendE e (Exts.paren (toValue a))
 
     toValue = \case
       Left (k, v) ->
@@ -721,7 +794,7 @@ toHeadersE protocol' = \case
   x : xs -> Foldable.foldl' toHeaders (toValue x) xs
   where
     toHeaders e a =
-      Exts.mappendE e (toValue a)
+      Exts.mappendE e (Exts.paren (toValue a))
 
     toValue = \case
       Left (k, v) -> Exts.pureE (Exts.tuple [Exts.strE k, Exts.strE v])
@@ -786,7 +859,7 @@ infixFieldEncoderE protocol' toItem field =
   let name = Exts.strE (memberName protocol' Input field)
       selector = fieldSelectE field
    in if fieldMaybe field
-        then Exts.app name (Exts.varE toItem) `Exts.fmapE` selector
+        then Exts.paren (Exts.app name (Exts.varE toItem)) `Exts.fmapE` selector
         else Exts.justE (Exts.infixApp name (Exts.opQ toItem) selector)
 
 -- ToHeaders
@@ -853,35 +926,70 @@ flatFieldEncoderE protocol' toItem toMap toList field =
 -- FIXME: doesn't support Maybe fields correctly.
 notationE :: Bool -> Notation Field -> Exts.Exp
 notationE nested = \case
-  Deref ks -> labels ks
-  Infix _lens x -> notationE nested x
-  Choice x y -> Exts.appFun (Exts.varE "Core.choice") [branch x, branch y]
+  Key x -> field x
+  App f a -> apply (loop a) f
+  Dot a b -> Exts.composeE (loop a) (loop b)
+  Alt a b -> Exts.altE (loop a) (loop b)
   where
-    branch x =
-      let e = notationE nested x
-       in Exts.paren (Exts.app (Exts.varE (Exts.fieldGetterN e)) e)
+    loop = notationE nested
 
-    labels (k :| ks) =
-      if null ks
-        then label nested k
-        else Foldable.foldl' (\e x -> Exts.applyE e (label True x)) (label nested k) ks
+    -- branch e =
+    --   Exts.paren (Exts.app (Exts.varE (Exts.fieldGetterN e)) e)
 
-    label nest = \case
-      Key field -> key nest field
-      Last field -> Exts.applyE (key nest field) (Exts.varE "Lens._last")
-      Each field ->
+    apply e = \case
+      IsEmpty ->
+        Exts.composeE e (Exts.varE "Core._isEmpty")
+      --
+      NotEmpty ->
+        Exts.composeE e (Exts.varE "Core._isNonEmpty")
+      --
+      Each ->
         Exts.app (Exts.varE "Lens.folding")
           . Exts.paren
           . Exts.app (Exts.varE "Lens.concatOf")
-          . Exts.applyE (key nest field)
+          . Exts.composeE e
           $ Exts.app (Exts.varE "Lens.to") (Exts.varE "Core.toList")
+      --
+      Last ->
+        Exts.composeE e (Exts.varE "Lens._last")
 
-    key nest field
-      | not nest = lens
-      | fieldMaybe field = Exts.applyE lens (Exts.varE "Lens._Just")
+    field x
+      | not nested = lens
+      | fieldMaybe x = Exts.composeE lens (Exts.varE "Lens._Just")
       | otherwise = lens
       where
-        lens = fieldLensE field
+        lens = fieldLensE x
+
+-- "Certificate.DomainValidationOptions[].ValidationStatus.Foo"
+
+-- (Dot (Key Certificate<Certificate>)
+--   (Dot (App Each (Key DomainValidationOptions<DomainValidationOptions>))
+--     (Dot (Key ValidationStatus<ValidationStatus>) (Key Foo<Foo>))))
+
+-- labels (k :| ks) =
+--   if null ks
+--     then label nested k
+--     else Foldable.foldl' compose (label nested k) ks
+--   where
+--     compose e x =
+--       Exts.composeE e (label True x)
+
+-- label nest = \case
+--   Key field -> key nest field
+--   Last field -> Exts.composeE (key nest field) (Exts.varE "Lens._last")
+--   Each field ->
+--     Exts.app (Exts.varE "Lens.folding")
+--       . Exts.paren
+--       . Exts.app (Exts.varE "Lens.concatOf")
+--       . Exts.composeE (key nest field)
+--       $ Exts.app (Exts.varE "Lens.to") (Exts.varE "Core.toList")
+
+-- key nest field
+--   | not nest = lens
+--   | fieldMaybe field = Exts.composeE lens (Exts.varE "Lens._Just")
+--   | otherwise = lens
+--   where
+--     lens = fieldLensE field
 
 -- Fields
 

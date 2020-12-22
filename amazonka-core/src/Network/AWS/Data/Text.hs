@@ -10,139 +10,181 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.Text
-  ( Text,
+  ( -- * Serialisation
+    ToText (..),
+    toUTF8,
 
     -- * Deserialisation
     FromText (..),
-    parseText,
-
-    -- * Serialisation
-    ToText (..),
-    showText,
+    parseUTF8,
   )
 where
 
 import Data.Attoparsec.Text (Parser)
-import qualified Data.Attoparsec.Text as A
+import qualified Data.Attoparsec.Text as Atto
+import qualified Data.Bifunctor as Bifunctor
 import Data.ByteString (ByteString)
-import qualified Data.ByteString.Char8 as BS8
-import Data.Int
-import Data.Scientific
+import qualified Data.ByteString.Char8 as ByteString.Char8
+import Data.Int (Int16, Int32, Int64, Int8)
+import Data.Scientific (Scientific)
 import Data.Text (Text)
 import qualified Data.Text as Text
-import qualified Data.Text.Encoding as Text
-import qualified Data.Text.Lazy as LText
+import qualified Data.Text.Encoding as Text.Encoding
+import qualified Data.Text.Lazy as Text.Lazy
 import Data.Text.Lazy.Builder (Builder)
-import qualified Data.Text.Lazy.Builder as Build
-import qualified Data.Text.Lazy.Builder.Int as Build
-import qualified Data.Text.Lazy.Builder.Scientific as Build
+import qualified Data.Text.Lazy.Builder as Builder
+import qualified Data.Text.Lazy.Builder.Int as Builder.Int
+import qualified Data.Text.Lazy.Builder.RealFloat as Builder.RealFloat
+import qualified Data.Text.Lazy.Builder.Scientific as Builder.Scientific
 import Data.Time (Day (..), NominalDiffTime, UTCTime (..))
 import Network.AWS.Data.Crypto
 import Network.AWS.Data.Time
-import Network.HTTP.Types
-import Numeric
-import Numeric.Natural
+import qualified Network.HTTP.Types as HTTP.Types
+import qualified Numeric
+import Numeric.Natural (Natural)
 
-parseText :: Parser a -> Text -> Either String a
-parseText parser = A.parseOnly (parser <* A.endOfInput)
-
-class FromText a where
-  fromText :: Text -> Either String a
-
-instance FromText Text where
-  fromText = pure
-
-instance FromText String where
-  fromText = pure . Text.unpack
-
-instance FromText ByteString where
-  fromText = pure . Text.encodeUtf8
-
-instance FromText Char where
-  fromText = parseText A.anyChar
-
-instance FromText Int where
-  fromText = parseText (A.signed A.decimal)
-
-instance FromText Int64 where
-  fromText = parseText (A.signed A.decimal)
-
-instance FromText Integer where
-  fromText = parseText (A.signed A.decimal)
-
-instance FromText Scientific where
-  fromText = parseText (A.signed A.scientific)
-
-instance FromText Natural where
-  fromText = parseText A.decimal
-
-instance FromText Double where
-  fromText = parseText (A.signed A.rational)
-
-instance FromText UTCTime where
-  fromText = parseDateTime iso8601Format . Text.unpack
-
-instance FromText Bool where
-  fromText = \case
-    "true" -> pure True
-    "false" -> pure False
-    e -> Left ("Failure parsing Bool from " ++ show e)
-
-instance FromText StdMethod where
-  fromText =
-    parseText $ do
-      bs <- Text.encodeUtf8 <$> A.takeText
-      either (fail . BS8.unpack) pure (parseMethod bs)
-
-showText :: ToText a => a -> String
-showText = Text.unpack . toText
+-- parseText :: Parser a -> Text -> Either Text a
+-- parseText parser = A.parseOnly (parser <* A.endOfInput)
 
 class ToText a where
   toText :: a -> Text
 
-instance ToText Text where
-  toText = id
+-- unpackText :: ToText a => a -> String
+-- unpackText = Text.unpack . toText
+-- {-# INLINEABLE unpackText #-}
 
-instance ToText ByteString where
-  toText = Text.decodeUtf8
+toUTF8 :: ToText a => a -> ByteString
+toUTF8 = Text.Encoding.encodeUtf8 . toText
+{-# INLINEABLE toUTF8 #-}
 
 instance ToText Char where
   toText = Text.singleton
+  {-# INLINEABLE toText #-}
 
-instance ToText String where
-  toText = Text.pack
-
-instance ToText Int where
-  toText = shortText . Build.decimal
-
-instance ToText Int64 where
-  toText = shortText . Build.decimal
+instance ToText Text where
+  toText = id
+  {-# INLINE toText #-}
 
 instance ToText Integer where
-  toText = shortText . Build.decimal
+  toText = buildStrictText . Builder.Int.decimal
+  {-# INLINEABLE toText #-}
 
 instance ToText Natural where
-  toText = shortText . Build.decimal
+  toText = buildStrictText . Builder.Int.decimal
+  {-# INLINEABLE toText #-}
+
+instance ToText Int where
+  toText = buildStrictText . Builder.Int.decimal
+  {-# INLINEABLE toText #-}
+
+instance ToText Int64 where
+  toText = buildStrictText . Builder.Int.decimal
+  {-# INLINEABLE toText #-}
 
 instance ToText Scientific where
-  toText = shortText . Build.scientificBuilder
+  toText = buildStrictText . Builder.Scientific.scientificBuilder
+  {-# INLINEABLE toText #-}
 
 instance ToText Double where
-  toText = toText . ($ "") . showFFloat Nothing
+  toText = buildStrictText . Builder.RealFloat.realFloat
+  {-# INLINEABLE toText #-}
 
-instance ToText StdMethod where
-  toText = toText . renderStdMethod
+buildStrictText :: Builder -> Text
+buildStrictText = Text.Lazy.toStrict . Builder.toLazyText
 
-instance ToText (Digest a) where
-  toText = toText . digestToBase Base16
+class FromText a where
+  parseText :: Text -> Either Text a
 
-instance ToText UTCTime where
-  toText = Text.pack . formatDateTime iso8601Format
+parseUTF8 :: FromText a => ByteString -> Either Text a
+parseUTF8 bytes = do
+  text <- Bifunctor.first (Text.pack . show) (Text.Encoding.decodeUtf8' bytes)
+  parseText text
+{-# INLINEABLE parseUTF8 #-}
 
-instance ToText Bool where
-  toText = \case
-    True -> "true"
-    False -> "false"
+instance FromText Text where
+  parseText = Right
+  {-# INLINEABLE parseText #-}
 
-shortText :: Builder -> Text
-shortText = LText.toStrict . Build.toLazyTextWith 32
+instance FromText ByteString where
+  parseText = Right . Text.Encoding.encodeUtf8
+  {-# INLINEABLE parseText #-}
+
+-- instance FromText Text where
+--   fromText = pure
+
+-- instance FromText String where
+--   fromText = pure . Text.unpack
+
+-- instance FromText ByteString where
+--   fromText = pure . Text.encodeUtf8
+
+-- instance FromText Char where
+--   fromText = parseText A.anyChar
+
+-- instance FromText Int where
+--   fromText = parseText (A.signed A.decimal)
+
+-- instance FromText Int64 where
+--   fromText = parseText (A.signed A.decimal)
+
+-- instance FromText Integer where
+--   fromText = parseText (A.signed A.decimal)
+
+-- instance FromText Scientific where
+--   fromText = parseText (A.signed A.scientific)
+
+-- instance FromText Natural where
+--   fromText = parseText A.decimal
+
+-- instance FromText Double where
+--   fromText = parseText (A.signed A.rational)
+
+-- instance FromText UTCTime where
+--   fromText = parseDateTime iso8601Format . Text.unpack
+
+-- instance FromText Bool where
+--   fromText = \case
+--     "true" -> pure True
+--     "false" -> pure False
+--     e -> Left ("Failure parsing Bool from " ++ show e)
+
+-- instance FromText StdMethod where
+--   fromText =
+--     parseText $ do
+--       bs <- Text.encodeUtf8 <$> A.takeText
+--       either (fail . BS8.unpack) pure (parseMethod bs)
+
+-- instance ToText ByteString where
+--   toText = Text.decodeUtf8
+
+-- instance ToText Char where
+--   toText = Text.singleton
+
+-- instance ToText String where
+--   toText = Text.pack
+
+-- instance ToText Int where
+--   toText = shortText . Build.decimal
+
+-- instance ToText Int64 where
+--   toText = shortText . Build.decimal
+
+-- instance ToText Integer where
+--   toText = shortText . Build.decimal
+
+-- instance ToText Natural where
+--   toText = shortText . Build.decimal
+
+-- instance ToText StdMethod where
+--   toText = toText . renderStdMethod
+
+-- instance ToText (Digest a) where
+--   toText = toText . digestToBase Base16
+
+-- instance ToText UTCTime where
+--   toText = Text.pack . formatDateTime iso8601Format
+
+-- instance ToText Bool where
+--   toText = \case
+--     True -> "true"
+--     False -> "false"

@@ -15,29 +15,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Data.Query where
+module Network.AWS.Data.Query
+  ( QueryBuilder,
+    buildQuery,
 
+    -- * Serialisation
+    ToQuery (..),
+    toQueryMap,
+    toQueryList,
+  )
+where
+
+import qualified Data.Bifunctor as Bifunctor
+import Data.ByteString (ByteString)
 import qualified Data.ByteString as ByteString
 import Data.ByteString.Builder (Builder)
 import qualified Data.ByteString.Builder as Builder
 import qualified Data.ByteString.Char8 as ByteString.Char8
 import qualified Data.ByteString.Lazy as ByteString.Lazy
+import Data.CaseInsensitive (CI)
+import qualified Data.CaseInsensitive as CI
+import Data.Coerce (Coercible)
+import qualified Data.Coerce as Coerce
+import Data.DList (DList)
+import qualified Data.DList as DList
 import Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as HashMap
 import Data.Hashable (Hashable)
 import qualified Data.List as List
-import Data.Maybe (fromMaybe)
-import Data.String (IsString)
-import qualified Data.Text.Encoding as Text
+import Data.Map.Strict (Map)
+import qualified Data.Map.Strict as Map
+import Data.Text (Text)
 import qualified Data.Text.Encoding as Text.Encoding
-import qualified GHC.Exts
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Text
+import qualified Network.AWS.Data.Text as AWS.Text
+import Network.HTTP.Types (HeaderName)
 import qualified Network.HTTP.Types as HTTP.Types
-import qualified Network.HTTP.Types.QueryLike as HTTP.Types.QueryLike
-import Numeric.Natural (Natural)
 
-type QueryString = DList (ByteString, ByteString)
+type QueryBuilder = DList (ByteString, ByteString)
+
+buildQuery :: QueryBuilder -> ByteString
+buildQuery =
+  ByteString.Lazy.toStrict
+    . Builder.toLazyByteString
+    . mconcat
+    . List.intersperse (Builder.shortByteString "&")
+    . map (\(k, v) -> encodeURL k <> Builder.shortByteString "=" <> encodeURL v)
+    . DList.toList
+{-# INLINEABLE buildQuery #-}
+
+encodeURL :: ByteString -> Builder
+encodeURL = HTTP.Types.urlEncodeBuilder True
+{-# INLINE encodeURL #-}
+
+class ToQuery a where
+  toQuery :: a -> QueryBuilder
+
+instance ToQuery QueryBuilder where
+  toQuery = id
+  {-# INLINE toQuery #-}
+
+toQueryMap ::
+  (AWS.Text.ToText k, AWS.Text.ToText v) =>
+  Builder ->
+  Builder ->
+  Builder ->
+  HashMap k v ->
+  QueryBuilder
+toQueryMap itemPrefix keyPrefix valPrefix =
+  mconcat . zipWith encodeItem [1 ..] . HashMap.toList
+  where
+    encodeItem index (k, v) =
+      DList.cons (encodeIndex index keyPrefix, AWS.Text.toUTF8 k) $
+        DList.cons (encodeIndex index valPrefix, AWS.Text.toUTF8 v) $
+          DList.empty
+
+    encodeIndex index prefix =
+      ByteString.Lazy.toStrict $
+        Builder.toLazyByteString $
+          itemPrefix
+            <> Builder.shortByteString "."
+            <> Builder.intDec index
+            <> Builder.shortByteString "."
+            <> prefix
+{-# INLINEABLE toQueryMap #-}
+
+toQueryList ::
+  AWS.Text.ToText a =>
+  Builder ->
+  [a] ->
+  QueryBuilder
+toQueryList itemPrefix =
+  DList.fromList . zipWith encodeItem [1 ..]
+  where
+    encodeItem index x =
+      (encodeIndex index, AWS.Text.toUTF8 x)
+
+    encodeIndex index =
+      ByteString.Lazy.toStrict $
+        Builder.toLazyByteString $
+          itemPrefix
+            <> Builder.shortByteString "."
+            <> Builder.intDec index
+{-# INLINEABLE toQueryList #-}
 
 -- data QueryString
 --   = QList [QueryString]
@@ -120,59 +199,6 @@ type QueryString = DList (ByteString, ByteString)
 -- k =: v = QPair k (toQuery v)
 
 -- formEncode :: [(ByteString, ByteString)] ->
-
-toQueryMap ::
-  ToByteString a =>
-  ByteString ->
-  ByteString ->
-  ByteString ->
-  HashMap Text a ->
-  Builder
-toQueryMap
-  (urlEncode -> itemPrefix)
-  (urlEncode -> keyPrefix)
-  (urlEncode -> valPrefix) =
-    mconcat
-      . List.intersperse (Builder.shortByteString "&")
-      . map (uncurry encodePair)
-      . zip [1 ..]
-      . HashMap.toList
-    where
-      encodePair index (key, toBS -> val) =
-        prefixItem index keyPrefix (Text.Encoding.encodeUtf8 key)
-          <> Builder.shortByteString "&"
-          <> prefixItem index valPrefix val
-
-      prefixItem index prefix item =
-        itemPrefix
-          <> Builder.shortByteString "."
-          <> Builder.intDec index
-          <> Builder.shortByteString "."
-          <> prefix
-          <> Builder.shortByteString "="
-          <> urlEncode item
-
-toQueryList ::
-  ToByteString a =>
-  ByteString ->
-  [a] ->
-  Builder
-toQueryList (urlEncode -> itemPrefix) =
-  mconcat
-    . List.intersperse (Builder.shortByteString "&")
-    . map (uncurry encodeItem)
-    . zip [1 ..]
-  where
-    encodeItem index item =
-      itemPrefix
-        <> Builder.shortByteString "."
-        <> Builder.intDec index
-        <> Builder.shortByteString "="
-        <> urlEncode (toBS item)
-
-urlEncode :: ByteString -> Builder
-urlEncode = HTTP.Types.urlEncodeBuilder True
-
 -- class ToQuery a where
 --   toQuery :: a -> QueryString
 

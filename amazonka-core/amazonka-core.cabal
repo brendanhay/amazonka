@@ -75,12 +75,13 @@ library
     , case-insensitive      >=1.2
     , conduit               >=1.1
     , conduit-extra         >=1.1
+    , containers            >=0.6.0.1
     , cryptonite            >=0.4
     , deepseq               >=1.4
+    , dlist                 >=0.8
     , exceptions            >=0.10
     , generic-lens          >=1.1
     , hashable              >=1.2
-    , http-api-data         >=0.3.8
     , http-client           >=0.5
     , http-conduit          >=2.3
     , http-types            >=0.8

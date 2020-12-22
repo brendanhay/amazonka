@@ -4,6 +4,7 @@
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TupleSections #-}
+{-# LANGUAGE ViewPatterns #-}
 
 -- |
 -- Module      : Network.AWS.Data.Headers
@@ -13,48 +14,117 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.Headers
-  ( module Network.AWS.Data.Headers,
-    HeaderName,
-    Header,
-    hContentType,
+  ( Headers,
+    HeadersBuilder,
+    buildHeaders,
+
+    -- * Serialisation
+    ToHeaders (..),
+
+    -- * Deserialisation
+    FromHeaders (..),
+    parseHeadersMaybe,
+    parseHeadersMap,
+
+    -- * Re-exported
+    HTTP.Types.HeaderName,
+    HTTP.Types.Header,
+    HTTP.Types.hContentType,
   )
 where
 
-import Data.Bifunctor (bimap)
-import qualified Data.ByteString.Char8 as BS8
+import qualified Data.Bifunctor as Bifunctor
+import Data.ByteString (ByteString)
+import qualified Data.ByteString as ByteString
+import qualified Data.ByteString.Char8 as ByteString.Char8
+import Data.CaseInsensitive (CI)
 import qualified Data.CaseInsensitive as CI
+import Data.Coerce (Coercible)
+import qualified Data.Coerce as Coerce
+import Data.DList (DList)
+import qualified Data.DList as DList
 import Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as HashMap
-import qualified Data.Text.Encoding as Text
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Text
-import Network.HTTP.Types
+import Data.Hashable (Hashable)
+import Data.Map.Strict (Map)
+import qualified Data.Map.Strict as Map
+import Data.Text (Text)
+import qualified Data.Text.Encoding as Text.Encoding
+import qualified Network.AWS.Data.Text as AWS.Text
+import Network.HTTP.Types (HeaderName)
+import qualified Network.HTTP.Types as HTTP.Types
 
-infixl 7 .#, .#?
+-- Note: Chose to use Map rather than HashMap so we can utilise the
+-- lexicographic ordering of keys for signing, without an additional sort pass.
+--
+-- This means when parsing a map of headers, we need to convert <-> HashMap.
+type Headers = Map HeaderName ByteString
 
--- FIXME: This whole toText/fromText shit is just stupid.
-parseResponseHeader
+type HeadersBuilder = DList (HeaderName, ByteString)
 
-(.#) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
-hs .# k = hs .#? k >>= note
+buildHeaders :: HeadersBuilder -> Headers
+buildHeaders = Map.fromList . DList.toList
+{-# INLINEABLE buildHeaders #-}
+
+class ToHeaders a where
+  toHeaders :: HeaderName -> a -> HeadersBuilder
+
+class FromHeaders a where
+  parseHeaders :: HeaderName -> Headers -> Either Text a
+
+parseHeadersMaybe :: HeaderName -> Headers -> Either Text (Maybe a)
+parseHeadersMaybe name headers = undefined
+{-# INLINEABLE parseHeadersMaybe #-}
+
+-- Parsing a header map is inherently optional
+parseHeadersMap ::
+  (Eq k, Hashable k, AWS.Text.FromText k, AWS.Text.FromText v) =>
+  -- | The prefix used to inclusively filter keys prior to parsing.
+  HeaderName ->
+  Headers ->
+  Either Text (HashMap k v)
+parseHeadersMap (CI.foldedCase -> prefix) =
+  fmap HashMap.fromList
+    . traverse (uncurry parseItem)
+    . Map.toList
+    . Map.filterWithKey (const . restrictKey)
   where
-    note = \case
-      Nothing -> Left (BS8.unpack $ "Unable to find header: " <> CI.original k)
-      Just x -> Right x
+    restrictKey key =
+      ByteString.isPrefixOf prefix (CI.foldedCase key)
 
-parseResponseHeaderMaybe
+    parseItem key value =
+      (,) <$> AWS.Text.parseUTF8 (ByteString.drop prefixLength (CI.foldedCase key))
+        <*> AWS.Text.parseUTF8 value
 
-(.#?) :: FromText a => ResponseHeaders -> HeaderName -> Either String (Maybe a)
-hs .#? k =
-  maybe
-    (Right Nothing)
-    (fmap Just . fromText . Text.decodeUtf8)
-    (lookup k hs)
+    prefixLength =
+      ByteString.length prefix
+{-# INLINEABLE parseHeadersMap #-}
 
-parseResponseHeader
+-- infixl 7 .#, .#?
 
-insertRequestHeader :: HeaderName -> ByteString -> [Header] -> [Header]
-insertRequestHeader k v hs = (k, v) : filter ((/= k) . fst) hs
+-- -- FIXME: This whole toText/fromText shit is just stupid.
+-- parseResponseHeader
+
+-- (.#) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
+-- hs .# k = hs .#? k >>= note
+--   where
+--     note = \case
+--       Nothing -> Left (BS8.unpack $ "Unable to find header: " <> CI.original k)
+--       Just x -> Right x
+
+-- parseResponseHeaderMaybe
+
+-- (.#?) :: FromText a => ResponseHeaders -> HeaderName -> Either String (Maybe a)
+-- hs .#? k =
+--   maybe
+--     (Right Nothing)
+--     (fmap Just . fromText . Text.decodeUtf8)
+--     (lookup k hs)
+
+-- parseResponseHeader
+
+-- insertRequestHeader :: HeaderName -> ByteString -> [Header] -> [Header]
+-- insertRequestHeader k v hs = (k, v) : filter ((/= k) . fst) hs
 
 -- class ToRequestHeaders a where
 --   toRequestHeaders :: HeaderName -> a -> [Header]
@@ -124,5 +194,5 @@ hAMZDecodedContentLength = "X-Amz-Decoded-Content-Length"
 hTransferEncoding :: HeaderName
 hTransferEncoding = "Transfer-Encoding"
 
-hFormEncoded :: ByteString
-hFormEncoded = "application/x-www-form-urlencoded; charset=utf-8"
+-- hFormEncoded :: ByteString
+-- hFormEncoded = "application/x-www-form-urlencoded; charset=utf-8"

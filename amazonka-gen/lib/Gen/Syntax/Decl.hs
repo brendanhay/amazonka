@@ -810,8 +810,8 @@ toXMLDocumentE protocol' mnamespace = \case
   Right field -> createNode field
   where
     createRoot name =
-      Exts.appFun (Exts.varE "Core.mkXMLElement")
-        . (Exts.strE (qualifyName name) :)
+      Exts.appFun (Exts.varE "Core.newXMLDocument")
+        . (qualifyName name :)
 
     createNode field =
       createRoot
@@ -821,7 +821,7 @@ toXMLDocumentE protocol' mnamespace = \case
         ]
 
     qualifyName name
-      | Just ns <- mnamespace = "{" <> ns <> "}" <> name
+      | Just ns <- mnamespace = Exts . "{" <> ns <> "}" <> name
       | otherwise = name
 
 toXMLE :: Protocol -> [Field] -> Exts.Exp
@@ -843,7 +843,7 @@ toXMLE protocol' = \case
     toNode field =
       Exts.varE $
         if field ^. fieldRef . refXMLAttribute
-          then "Core.toXMLAttribute"
+          then "Core.toXMLAttr"
           else "Core.toXMLNode"
 
 toJSONE :: Protocol -> [Field] -> Exts.Exp
